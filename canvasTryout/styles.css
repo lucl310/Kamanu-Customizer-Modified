@@ -1,0 +1,28 @@
+body{
+	background-color: #ABB0B2;
+	text-decoration-color: #333;
+	text-align: center;
+}
+#noioDupe{
+	text-align: center;
+	margin: 20px;
+}
+#blueButton{
+	background-color: blue;
+}
+#redButton{
+	background-color: red;
+}
+#whiteButton{
+	background-color: white;
+}
+button{
+	border-color: white;
+	margin: 10px;
+}
+#clearButton{
+	border-width: 10px;
+}
+.colorButton{
+	border-width: 5px;
+}

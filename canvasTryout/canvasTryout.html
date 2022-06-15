@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="utf-8">
+    <title>Design your canoe - Kamanu Composites</title>
+    <body>
+
+        <p>Double click to draw, single click to clear</p>
+        <p>Images:</p>
+
+        <img id="noio" width="220" height="277" src="noio.jfif">
+        <!-- <img id="whiteimage" src="whiteImage.png"> -->
+        <p>Current Color:</p>
+        <div id="imgHolder"></div>
+
+        <button class="colorButton" id="blueButton" onclick="changeBlue()"></button><button class="colorButton" id="redButton" onclick="changeRed()"></button><button class="colorButton" id="whiteButton" onclick="changeWhite()"></button>
+        <p>Canvas:</p>
+
+        <button id="clearButton" onclick="clearClick();">Clear Canvas</button>
+
+        <canvas id="myCanvas" width="900" height="530" style="border:1px solid #d3d3d3;" 
+        onclick="singleClick();" onload="clearClick();"></canvas>
+
+    </body>
+    <script src="script.js"></script>
+</html>
