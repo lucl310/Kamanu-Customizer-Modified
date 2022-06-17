@@ -5,10 +5,6 @@ var deck = "Deck"
 var hull = "Hull"
 var ama = "Ama"
 
-
-  // for seperate function of draw image only on canoe deck use   ctx.putImageData(imgData, 0, 0, 0, 165, 1000, 100);   ctx.putImageData(imgData, 0, 0, 0, 400, 1000, 50), first for top hull, second for side hull
-
-
 document.addEventListener("mousemove", () => {
   let mousex = event.clientX;
   let mousey = event.clientY;
