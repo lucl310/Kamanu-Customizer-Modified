@@ -2,6 +2,26 @@ body{
 	background-color: #ABB0B2;
 	text-decoration-color: #333;
 	text-align: center;
+	/*margin-left: 300px;*/
+	align-self: center;
+	margin-left: 5%;
+}
+#overlay{
+	position: absolute;
+	/*left: 0px;*/
+	text-align: center;
+	top: 56.5%;
+	left: 24.5%;
+}
+#sticker{
+	transform: rotate(95deg);
+	position: absolute;
+	/*resize: both;
+	overflow: auto;*/
+	width: 50px;
+	height: auto;
+	top: 73%;
+	left: 41%;
 }
 #noioDupe{
 	text-align: center;
@@ -16,12 +36,33 @@ body{
 #whiteButton{
 	background-color: white;
 }
+#greenButton{
+	background-color: green;
+}
+#myCanvas{
+	/*margin-left: 5%;*/
+	height: 595px;
+}
+#divider{
+	margin: 17.5px;
+	color: #ABB0B2;
+}
+.funButton{
+	position: absolute;
+	top: 48.5%;
+	left: 50%;
+}
 button{
 	border-color: white;
 	margin: 10px;
+	border-width: 10px;
 }
 #clearButton{
 	border-width: 10px;
+	left: 42.5%;
+}
+#invertButton{
+	left: 55%;
 }
 .colorButton{
 	border-width: 5px;

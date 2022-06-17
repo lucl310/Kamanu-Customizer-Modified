@@ -8,16 +8,20 @@
 
         <p>Double click to draw, single click to clear</p>
         <p>Images:</p>
+        <img id="overlay" src="screenshotWhite1.png">
+        <img id="sticker" src="tribalDesign.png">
 
         <img id="noio" width="220" height="277" src="canvasTryout/noio.jfif">
         <!-- <img id="whiteimage" src="whiteImage.png"> -->
         <p>Current Color:</p>
         <div id="imgHolder"></div>
 
-        <button class="colorButton" id="blueButton" onclick="changeBlue()"></button><button class="colorButton" id="redButton" onclick="changeRed()"></button><button class="colorButton" id="whiteButton" onclick="changeWhite()"></button>
+        <button class="colorButton" id="blueButton" onclick="changeBlue()"></button><button class="colorButton" id="redButton" onclick="changeRed()"></button><button class="colorButton" id="greenButton" onclick="changeGreen()"></button><button class="colorButton" id="whiteButton" onclick="changeWhite()"></button>
+        <div id="divider">a</div>
         <p>Canvas:</p>
 
-        <button id="clearButton" onclick="clearClick();">Clear Canvas</button>
+        <button class="funButton" id="clearButton" onclick="clearClick();">Clear Canvas</button> <button class="funButton" id="invertButton" onclick="colorInvert();">Invert Colors</button>
+        
         <canvas id="myCanvas" width="900" height="530" style="border:1px solid #d3d3d3;" 
         onclick="singleClick();" onload="clearClick();"></canvas>
         
