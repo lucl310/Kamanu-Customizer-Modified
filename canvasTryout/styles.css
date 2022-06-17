@@ -10,7 +10,7 @@ body{
 	position: absolute;
 	/*left: 0px;*/
 	text-align: center;
-	top: 56.5%;
+	top: 59.5%;
 	left: 24.5%;
 }
 #sticker{
@@ -39,6 +39,30 @@ body{
 #greenButton{
 	background-color: green;
 }
+#blueButtonHull{
+	background-color: blue;
+}
+#redButtonHull{
+	background-color: red;
+}
+#whiteButtonHull{
+	background-color: white;
+}
+#greenButtonHull{
+	background-color: green;
+}
+#blueButtonAma{
+	background-color: blue;
+}
+#redButtonAma{
+	background-color: red;
+}
+#whiteButtonAma{
+	background-color: white;
+}
+#greenButtonAma{
+	background-color: green;
+}
 #myCanvas{
 	/*margin-left: 5%;*/
 	height: 595px;
@@ -48,9 +72,13 @@ body{
 	color: #ABB0B2;
 }
 .funButton{
-	position: absolute;
+	/*position: absolute;*/
 	top: 48.5%;
 	left: 50%;
+}
+.bird{
+	margin: 5px;
+	border-width: 1px;
 }
 button{
 	border-color: white;
