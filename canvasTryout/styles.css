@@ -1,17 +1,45 @@
 body{
-	background-color: #ABB0B2;
-	text-decoration-color: #333;
+	background-color: #a9b9c0;
+	/* color: #333; */
 	text-align: center;
 	/*margin-left: 300px;*/
 	align-self: center;
-	margin-left: 5%;
+	margin-left: 3%;
+	font-family: "bree serif";
+}
+p{
+	font-weight: lighter;
+	color: #333;
+
+}
+#logo{
+	position: fixed;
+	height: 50px;
+	width: auto;
+	left: 2%;
+}
+#customizeText{
+	position: fixed;
+	top: 0px;
+	left: 0%;
+	/* background-color: #a9b9c0; */
+	background-color: white;
+	margin: 0px;
+	padding: 21px;
+	padding-left: 41.71%;
+	padding-right: 41.71%;
+}
+#firstLine{
+	/* top: 100px;
+	position: relative; */
+	padding-top: 2.5cm;
 }
 #overlay{
 	position: absolute;
 	/*left: 0px;*/
 	text-align: center;
-	top: 59.5%;
-	left: 24.5%;
+	top: 72.25%;
+	left: 23.5%;
 }
 #sticker{
 	transform: rotate(95deg);
@@ -84,6 +112,7 @@ button{
 	border-color: white;
 	margin: 10px;
 	border-width: 10px;
+	font-family: domine;
 }
 #clearButton{
 	border-width: 10px;

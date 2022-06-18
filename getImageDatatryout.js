@@ -4,6 +4,9 @@ var img = new Image()
 var deck = "Deck"
 var hull = "Hull"
 var ama = "Ama"
+var floaters = document.getElementsByClassName("floats")
+var sticky = floaters.offsetTop();
+window.onscroll = function() {floatHead()};
 
 document.addEventListener("mousemove", () => {
   let mousex = event.clientX;
@@ -48,6 +51,16 @@ function clearClick() {
 };
 
 function colorInvert() {
+  var imgData = ctx.getImageData(0, 0, c.width, c.height);
+    
+    var i;
+    for (i = 0; i < imgData.data.length; i += 4) {
+      imgData.data[i] = 255 - imgData.data[i];
+      imgData.data[i+1] = 255 - imgData.data[i+1];
+      imgData.data[i+2] = 255 - imgData.data[i+2];
+      imgData.data[i+3] = 255;
+    };
+    ctx.putImageData(imgData, 0, 0);
   img.src = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QAiRXhpZgAATU0AKgAAAAgAAQESAAMAAAABAAEAAAAAAAD/4gIoSUNDX1BST0ZJTEUAAQEAAAIYAAAAAAQwAABtbnRyUkdCIFhZWiAAAAAAAAAAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAAHRyWFlaAAABZAAAABRnWFlaAAABeAAAABRiWFlaAAABjAAAABRyVFJDAAABoAAAAChnVFJDAAABoAAAAChiVFJDAAABoAAAACh3dHB0AAAByAAAABRjcHJ0AAAB3AAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAFgAAAAcAHMAUgBHAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhZWiAAAAAAAABvogAAOPUAAAOQWFlaIAAAAAAAAGKZAAC3hQAAGNpYWVogAAAAAAAAJKAAAA+EAAC2z3BhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABYWVogAAAAAAAA9tYAAQAAAADTLW1sdWMAAAAAAAAAAQAAAAxlblVTAAAAIAAAABwARwBvAG8AZwBsAGUAIABJAG4AYwAuACAAMgAwADEANv/bAEMAAgEBAgEBAgICAgICAgIDBQMDAwMDBgQEAwUHBgcHBwYHBwgJCwkICAoIBwcKDQoKCwwMDAwHCQ4PDQwOCwwMDP/bAEMBAgICAwMDBgMDBgwIBwgMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDP/AABEIAAYACgMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APryiiiug4z/2Q=="
   ctx.drawImage(img, 0, 0);
 };
@@ -91,7 +104,7 @@ function changeSticker() {
   // var placedSticker = imageHTML.cloneNode();
   var placedSticker = document.createElement("img")
   placedSticker.src = "tribalDesign.png"
-  placedSticker.setAttribute("style", " transform: rotate(95deg); position: absolute; width: 50px; height: auto; top: 76%; left: 41%;")
+  placedSticker.setAttribute("style", " transform: rotate(95deg); position: absolute; width: 50px; height: auto; top: 88.75%; left: 40%;")
   placedSticker.setAttribute("id", "tribalStickers")
   document.getElementById("placedSticker").appendChild(placedSticker)
   // document.getElementById("placedSticker") = placedSticker
@@ -99,4 +112,12 @@ function changeSticker() {
   // img.src = "tribalDesign.png" //ADD IMAGE SOURCE URI
   // img.style.transform = "rotate(95deg)";
   // img.style.POSITION = "absolute";
+}
+
+function floatHead(){
+  if (window.pageYOffset > sticky) {
+    floaters.classList.add("sticky");
+  } else {
+    floaters.classList.remove("sticky");
+  }
 }
