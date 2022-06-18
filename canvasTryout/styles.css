@@ -4,7 +4,7 @@ body{
 	text-align: center;
 	/*margin-left: 300px;*/
 	align-self: center;
-	margin-left: 3%;
+	/* margin-left: 3%; */
 	font-family: "bree serif";
 }
 p{
@@ -39,7 +39,7 @@ p{
 	/*left: 0px;*/
 	text-align: center;
 	top: 72.25%;
-	left: 23.5%;
+	left: 23%;
 }
 #sticker{
 	transform: rotate(95deg);
