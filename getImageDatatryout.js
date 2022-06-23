@@ -1,7 +1,7 @@
-// import html2canvas from 'html2canvas';
+// import html2canvas from 'C:/Users/Keizo/node_modules/html2canvas/dist';
+// import * as html2canvas from 'html2canvas';
 
-
-// const html2canvas = require('html2canvas');
+// var html2canvas = require('html2canvas');
 // var exportRef = useRef();
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
@@ -11,10 +11,24 @@ var hull = "Hull"
 var ama = "Ama"
 var floaters = document.getElementsByClassName("floats")
 var sticky = floaters.offsetTop();
+var boatType = "Noio"
+var deckColor = "yes"
+var hullColor = "yes"
+var amaColor = "yes"
+var stickerStatus = "yes"
+
+// onclick="exportAsImage('body', 'test')"
+
+floatHead()
+changeColor(0, 0, 0, "Hull")
+changeSticker()
+clearClick()
+colorInvert()
+confirmMessage()
 
 function exportAsImage(element, imageFilename){
   console.log("dhasfj")
-  async (element, imageFileName) => {
+  async function screenshot (element, imageFileName){
     var html = document.getElementsByTagName("html")[0];
     var body = document.getElementsByTagName("body")[0];
     htmlWidth = html.clientWidth;
@@ -26,14 +40,17 @@ function exportAsImage(element, imageFilename){
     }
     html.style.width = htmlWidth + "px";
     body.style.width = bodyWidth + "px";
-    var canvas = await html2canvas(element);
+    var canvas = await exportAsImage(element);
     var image = canvas.toDataURL("image/png", 1.0);
     downloadImage(image, imageFileName);
     html.style.width = null;
     body.style.width = null;
     console.log("Im working better")
   }
+  screenshot("body", "quande")
 };
+
+//if not working, remove function and screenshot from the async and remove the screenshot call at the bottom of the function and canvas var await back to html2canvas
 
 var downloadImage = (blob, fileName) => {
   var fakeLink = window.document.createElement("a");
@@ -50,6 +67,10 @@ var downloadImage = (blob, fileName) => {
   };
   
 // export default exportAsImage;
+
+function confirmMessage(){
+  var confirmAlert = confirm("Please ensure the following is correct \nThis is a " + boatType?.toString().toLowerCase() || "" + ", " + deckColor?.toString().toLowerCase() || "" + ", " + hullColor?.toString().toLowerCase() || "" + ", " + amaColor?.toString().toLowerCase() || "" + " and " + stickerStatus?.toString().toLowerCase() || "");
+}
 
 window.onscroll = function() {floatHead()};
 
@@ -80,9 +101,9 @@ function clearClick() {
   
   var i;
   for (i = 0; i < imgData.data.length; i += 4) {
-    imgData.data[i] = 171;
-    imgData.data[i+1] = 176;
-    imgData.data[i+2] = 178;
+    imgData.data[i] = 148;
+    imgData.data[i+1] = 163;
+    imgData.data[i+2] = 184;
     imgData.data[i+3] = 255;
   };
   ctx.putImageData(imgData, 0, 0);
@@ -93,6 +114,7 @@ function clearClick() {
     var removeStickers = document.getElementById("tribalStickers").remove();
     numStickers = numStickers - 1;
   };
+  console.log("The layup has been cleared");
 };
 
 function colorInvert() {
@@ -130,18 +152,39 @@ function changeColor(red, green, blue, placement){
     imgData.data[i+2] = blue;
     imgData.data[i+3] = 255;
   };
+  if(red == 255 && green == 0){
+    var color = "red"
+  }
+  else if(green == 255 && red == 0){
+    var color = "green"
+  }
+  else if(blue == 255 && green == 0){
+    var color = "blue"
+  }
+  else if(blue == 255 && red == 255 && green == 255){
+    var color = "white"
+  };
   if(placement == "Deck"){
     ctx.putImageData(imgData, 0, 0, 0, 165, 1000, 100);
     ctx.putImageData(imgData, 0, 0, 0, 400, 1000, 50);
+    var deckColor = "The deck is " + color
+    console.log(deckColor);
+    return(deckColor);
   }
   else if(placement == "Hull"){
     ctx.putImageData(imgData, 0, 0, 0, 450, 1000, 75);
+    var hullColor = "The hull is " + color
+    console.log(hullColor);
+    return(hullColor);
   }
   else if(placement == "Ama"){
     ctx.putImageData(imgData, 0, 0, 0, 0, 1000, 59);
     ctx.putImageData(imgData, 0, 0, 0, 300, 1000, 80);
+    var amaColor = "The ama is " + color
+    console.log(amaColor);
+    return(amaColor);
   };
-}
+};
 
 
 function changeSticker() {
@@ -157,6 +200,8 @@ function changeSticker() {
   // img.src = "tribalDesign.png" //ADD IMAGE SOURCE URI
   // img.style.transform = "rotate(95deg)";
   // img.style.POSITION = "absolute";
+  var stickerStatus = console.log("There are stickers on the boat")
+  return(stickerStatus)
 }
 
 function floatHead(){
