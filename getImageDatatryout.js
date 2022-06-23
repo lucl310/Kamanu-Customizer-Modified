@@ -1,5 +1,5 @@
 // import html2canvas from 'C:/Users/Keizo/node_modules/html2canvas/dist';
-// import * as html2canvas from 'html2canvas';
+// import html2canvas from './html2canvas.esm.js';
 
 // var html2canvas = require('html2canvas');
 // var exportRef = useRef();
@@ -9,8 +9,8 @@ var img = new Image()
 var deck = "Deck"
 var hull = "Hull"
 var ama = "Ama"
-var floaters = document.getElementsByClassName("floats")
-var sticky = floaters.offsetTop();
+// var floaters = document.getElementsByClassName("floats")
+// var sticky = floaters.offsetTop();
 var boatType = "Noio"
 var deckColor = "yes"
 var hullColor = "yes"
@@ -19,60 +19,8 @@ var stickerStatus = "yes"
 
 // onclick="exportAsImage('body', 'test')"
 
-floatHead()
-changeColor(0, 0, 0, "Hull")
-changeSticker()
-clearClick()
-colorInvert()
-confirmMessage()
 
-function exportAsImage(element, imageFilename){
-  console.log("dhasfj")
-  async function screenshot (element, imageFileName){
-    var html = document.getElementsByTagName("html")[0];
-    var body = document.getElementsByTagName("body")[0];
-    htmlWidth = html.clientWidth;
-    bodyWidth = body.clientWidth;
-    var newWidth = element.scrollWidth - element.clientWidth;
-    if (newWidth > element.clientWidth) {
-    htmlWidth += newWidth;
-    bodyWidth += newWidth;
-    }
-    html.style.width = htmlWidth + "px";
-    body.style.width = bodyWidth + "px";
-    var canvas = await exportAsImage(element);
-    var image = canvas.toDataURL("image/png", 1.0);
-    downloadImage(image, imageFileName);
-    html.style.width = null;
-    body.style.width = null;
-    console.log("Im working better")
-  }
-  screenshot("body", "quande")
-};
-
-//if not working, remove function and screenshot from the async and remove the screenshot call at the bottom of the function and canvas var await back to html2canvas
-
-var downloadImage = (blob, fileName) => {
-  var fakeLink = window.document.createElement("a");
-  // fakeLink.style = "display:none;";
-  fakeLink.download = fileName;
-  
-  fakeLink.href = blob;
-  
-  document.body.appendChild(fakeLink);
-  fakeLink.click();
-  document.body.removeChild(fakeLink);
-  console.log("im working")
-  fakeLink.remove();
-  };
-  
-// export default exportAsImage;
-
-function confirmMessage(){
-  var confirmAlert = confirm("Please ensure the following is correct \nThis is a " + boatType?.toString().toLowerCase() || "" + ", " + deckColor?.toString().toLowerCase() || "" + ", " + hullColor?.toString().toLowerCase() || "" + ", " + amaColor?.toString().toLowerCase() || "" + " and " + stickerStatus?.toString().toLowerCase() || "");
-}
-
-window.onscroll = function() {floatHead()};
+// window.onscroll = function() {floatHead()};
 
 document.addEventListener("mousemove", () => {
   let mousex = event.clientX;
@@ -83,7 +31,7 @@ window.onload = function colorChange() {
   img.onload = function () {
     ctx.drawImage(img, 50, 0);
     var imgData = ctx.getImageData(0, 0, c.width, c.height);
-    
+
     var i;
     for (i = 0; i < imgData.data.length; i += 4) {
       imgData.data[i] = 255 - imgData.data[i];
@@ -98,7 +46,7 @@ window.onload = function colorChange() {
 function clearClick() {
   var img = new Image()
   var imgData = ctx.getImageData(0, 0, c.width, c.height);
-  
+
   var i;
   for (i = 0; i < imgData.data.length; i += 4) {
     imgData.data[i] = 148;
@@ -114,12 +62,13 @@ function clearClick() {
     var removeStickers = document.getElementById("tribalStickers").remove();
     numStickers = numStickers - 1;
   };
+  console.clear()
   console.log("The layup has been cleared");
 };
 
 function colorInvert() {
   var imgData = ctx.getImageData(0, 0, c.width, c.height);
-    
+
     var i;
     for (i = 0; i < imgData.data.length; i += 4) {
       imgData.data[i] = 255 - imgData.data[i];
@@ -134,17 +83,17 @@ function colorInvert() {
 
 function singleClick() {
     var x = event.clientX;
-    var y = event.clientY; 
+    var y = event.clientY;
     var img = new Image();
     img.height = "10";
     ctx.drawImage(img, x-150, y-100, 300, 300);
 };
 
 function changeColor(red, green, blue, placement){
-  var x = event.clientX;
-  var y = event.clientY; 
+  // var x = event.clientX;
+  // var y = event.clientY;
   var imgData = ctx.getImageData(0, 0, c.width, c.height);
-  
+
   var i;
   for (i = 0; i < imgData.data.length; i += 4) {
     imgData.data[i] = red;
@@ -169,22 +118,41 @@ function changeColor(red, green, blue, placement){
     ctx.putImageData(imgData, 0, 0, 0, 400, 1000, 50);
     var deckColor = "The deck is " + color
     console.log(deckColor);
-    return(deckColor);
   }
   else if(placement == "Hull"){
     ctx.putImageData(imgData, 0, 0, 0, 450, 1000, 75);
     var hullColor = "The hull is " + color
     console.log(hullColor);
-    return(hullColor);
   }
   else if(placement == "Ama"){
     ctx.putImageData(imgData, 0, 0, 0, 0, 1000, 59);
     ctx.putImageData(imgData, 0, 0, 0, 300, 1000, 80);
     var amaColor = "The ama is " + color
     console.log(amaColor);
-    return(amaColor);
   };
+  return(amaColor, hullColor, deckColor)
 };
+
+
+// floatHead();
+
+
+function confirmMessage(){
+  var boatType = boatType
+  // var confirmAlert = confirm("Please ensure the following is correct \nThis is a " + boatType + ", " + deckColor + ", " + hullColor + ", " + amaColor + " and " + stickerStatus);
+  var confirmAlert = confirm("Is this the correct layup of your canoe?")
+  if(confirmAlert == true){
+    console.log("Correct order")
+    var orderComplete = true
+    return(orderComplete)
+  }
+  else{
+    console.log("Incorrect order")
+    var orderComplete = false
+    return(orderComplete)
+  }
+}
+
 
 
 function changeSticker() {
@@ -204,11 +172,18 @@ function changeSticker() {
   return(stickerStatus)
 }
 
-function floatHead(){
-  if (window.pageYOffset > sticky) {
-    floaters.classList.add("sticky");
-  } else {
-    floaters.classList.remove("sticky");
-  }
-}
+// function floatHead(){
+//   if (window.pageYOffset > sticky) {
+//     floaters.classList.add("sticky");
+//   } else {
+//     floaters.classList.remove("sticky");
+//   }
+// }
 
+// Confirms everything is working
+
+// changeColor(0, 0, 0, "Hull");
+// changeSticker();
+// clearClick();
+// colorInvert();
+// confirmMessage();

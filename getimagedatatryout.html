@@ -4,8 +4,10 @@
     <link rel="stylesheet" type="text/css" href="canvastryout/styles.css">
     <link href='https://fonts.googleapis.com/css?family=Bree Serif' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Average Sans' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Domine' rel='stylesheet'>    
+    <link href='https://fonts.googleapis.com/css?family=Domine' rel='stylesheet'>
+    <link href="https://storage.googleapis.com/b.kamanucomposites.com/static/favicon-32x32.png" rel="icon">
     <meta charset="utf-8">
+    <script src="./imageGenerator.js" type="module"></script>
     <title>Getimagedata tryout - sample</title>
     <body>
         
@@ -39,7 +41,8 @@
         <button class="colorButton" id="stickerButton" onclick="changeSticker()"></button>
         <!-- <div id="divider">a</div> -->
         <p>Canvas:</p>
-        <button onmouseup="confirmMessage()">Capture Image</button>
+        <button onmouseup="confirmMessage()" onclick="exportAsImage('body', 'canoeLayup')">Capture Image</button>
+        <button onclick="downloadImage()"></button>
 
         <button class="funButton" id="clearButton" onclick="clearClick();">Clear Canvas</button> <button class="funButton" id="invertButton" onclick="colorInvert();">Invert Colors</button>
         <p></p>
@@ -48,6 +51,5 @@
         onclick="singleClick();" onload="clearClick();"></canvas>
         
     </body>
-<!-- <script src="c:/users/keizo/node_modules/html2canvas/dist/html2canvas.js"></script> -->
-<script src="getImageDatatryout.js" crossorigin="anonymous"></script>
+<script src="./getImageDatatryout.js" crossorigin="anonymous"></script>
 </html>
