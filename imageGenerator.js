@@ -10,6 +10,7 @@ window.exportAsImage = function exportAsImage(element, imageFilename){
         var canvasimage = document.body.appendChild(canvas);
         canvasimage.setAttribute("id","canvasImage")
         document.getElementById("canvasImage").download
+        canvasimage.style.display = "none"
     });
     async(element, imageFileName) => {
     var html = document.getElementsByTagName("html")[0];

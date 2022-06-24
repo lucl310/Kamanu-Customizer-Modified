@@ -15,7 +15,7 @@
         <img src="kamanutype.png" class="floats" id="logo" alt="">
         <p id="firstLine">Double click to draw, single click to clear</p>
         <p>Canoe Model</p>
-        <button class="bird">Noio</button>   <button class="bird">Pueo</button>
+        <button id="Noio" class="bird" onclick="changeBird('Noio')">Noio</button>   <button id="Pueo" class="bird" onclick="changeBird('Pueo')">Pueo</button>
         <img id="overlay" src="screenshotWhite1.png">
         <!-- <img id="sticker" src="tribalDesign.png"> -->
 
@@ -42,8 +42,8 @@
         <!-- <div id="divider">a</div> -->
         <p>Canvas:</p>
         <button onmouseup="confirmMessage()" onclick="exportAsImage('body', 'canoeLayup')">Capture Image</button>
-        
-        <button class="funButton" id="clearButton" onclick="clearClick();">Clear Canvas</button> <button class="funButton" id="invertButton" onclick="colorInvert();">Invert Colors</button>
+
+        <button class="funButton" id="clearButton" onclick="clearClick();">Clear Canvas</button> <button class="funButton" id="invertButton" onclick="colorInvert();">Invert Colors</button> <button id="showButton" class="funButton" onclick="showDesigns()">Show Saved Designs</button>
         <p></p>
         
         <canvas id="myCanvas" width="900" height="530" style="border:1px solid #d3d3d3;" 

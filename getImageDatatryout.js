@@ -11,11 +11,11 @@ let hull = "Hull"
 let ama = "Ama"
 // var floaters = document.getElementsByClassName("floats")
 // var sticky = floaters.offsetTop();
-let boatType = "Noio"
+let boatType = "Pueo"
 let deckColor = "yes"
 let hullColor = "yes"
 let amaColor = "yes"
-let stickerStatus = "yes"
+let stickerStatus = "There are no stickers on the boat"
 
 // onclick="exportAsImage('body', 'test')"
 
@@ -65,6 +65,17 @@ function clearClick() {
   console.clear()
   console.log("The layup has been cleared");
 };
+
+function changeBird(birdModel){
+  var overlay = document.getElementById("overlay")
+  if(birdModel == "Noio"){
+    overlay.src = "noioLayup.png"
+    boatType = "Noio"
+  } else if(birdModel == "Pueo"){
+    overlay.src = "ScreenshotWhite1.png"
+    boatType = "Pueo"
+  }
+}
 
 function colorInvert() {
   var imgData = ctx.getImageData(0, 0, c.width, c.height);
@@ -136,24 +147,6 @@ function changeColor(red, green, blue, placement){
 
 // floatHead();
 
-
-function confirmMessage(){
-  var confirmAlert = confirm("Please ensure the following is correct \nThis is a " + boatType + ", " + deckColor + ", " + hullColor + ", " + amaColor + " and " + stickerStatus);
-  var confirmAlert = confirm("Is this the correct layup of your canoe?")
-  if(confirmAlert == true){
-    console.log("Correct order")
-    var orderComplete = true
-    return(orderComplete)
-  }
-  else{
-    console.log("Incorrect order")
-    var orderComplete = false
-    return(orderComplete)
-  }
-}
-
-
-
 function changeSticker() {
   // var imageHTML = document.getElementById("tribalSticker")
   // var placedSticker = imageHTML.cloneNode();
@@ -167,8 +160,45 @@ function changeSticker() {
   // img.src = "tribalDesign.png" //ADD IMAGE SOURCE URI
   // img.style.transform = "rotate(95deg)";
   // img.style.POSITION = "absolute";
-  var stickerStatus = console.log("There are stickers on the boat")
-  return(stickerStatus)
+  let stickerStatus = "There are stickers on the boat"
+  // return(stickerStatus)
+}
+
+function confirmMessage(){
+  if(amaColor == "yes" && deckColor == "yes" && hullColor == "yes"){
+    var confirmAlert = confirm("Please ensure the following is correct \nThis is a stock grey " + boatType)
+  } else {
+    if(deckColor == "yes"){
+      deckColor = "The deck is grey"
+    }
+    if(hullColor == "yes"){
+      hullColor = "The hull is grey"
+    }
+    if(amaColor == "yes"){
+      amaColor = "The ama is grey"
+    }
+    var confirmAlert = confirm("Please ensure the following is correct \nThis is a " + boatType + ", " + deckColor.toLowerCase() + ", " + hullColor.toLowerCase() + ", " + amaColor.toLowerCase() + ", and " + stickerStatus.toLowerCase());
+  }
+  // var confirmAlert = confirm("Is this the correct layup of your canoe?")
+  if(confirmAlert == true){
+    console.log("Correct order")
+    var orderComplete = true
+    return(orderComplete)
+  }
+  else{
+    console.log("Incorrect order")
+    var orderComplete = false
+    return(orderComplete)
+  }
+}
+
+function showDesigns(){
+  var doneLayups = document.getElementById("canvasImage")
+  if(doneLayups.style.display == "none"){
+    doneLayups.style.display = "initial"
+  } else if(doneLayups.style.display == "initial"){
+    doneLayups.style.display = "none"
+  }
 }
 
 // function floatHead(){

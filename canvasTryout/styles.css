@@ -17,6 +17,7 @@ p{
 	height: 50px;
 	width: auto;
 	left: 2%;
+	z-index: 1001;
 }
 #customizeText{
 	position: fixed;
@@ -28,6 +29,7 @@ p{
 	padding: 21px;
 	padding-left: 41.71%;
 	padding-right: 41.71%;
+	z-index: 1000;
 }
 #firstLine{
 	/* top: 100px;
@@ -39,7 +41,7 @@ p{
 	/*left: 0px;*/
 	text-align: center;
 	top: 72.25%;
-	left: 23%;
+	left: 22.25%;
 }
 #sticker{
 	transform: rotate(95deg);
