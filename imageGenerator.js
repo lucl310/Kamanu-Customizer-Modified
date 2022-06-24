@@ -4,11 +4,12 @@ var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 var img = new Image()
 
-
-function exportAsImage(element, imageFilename){
+window.exportAsImage = function exportAsImage(element, imageFilename){
     console.log("dhasfj")
-    html2canvas(document.body).then(function(canvas) {
-        document.body.appendChild(canvas);
+    html2canvas(document.getElementById("myCanvas")).then(function(canvas) {
+        var canvasimage = document.body.appendChild(canvas);
+        canvasimage.setAttribute("id","canvasImage")
+        document.getElementById("canvasImage").download
     });
     async(element, imageFileName) => {
     var html = document.getElementsByTagName("html")[0];
