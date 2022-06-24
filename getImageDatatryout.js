@@ -6,16 +6,16 @@
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 var img = new Image()
-var deck = "Deck"
-var hull = "Hull"
-var ama = "Ama"
+let deck = "Deck"
+let hull = "Hull"
+let ama = "Ama"
 // var floaters = document.getElementsByClassName("floats")
 // var sticky = floaters.offsetTop();
-var boatType = "Noio"
-var deckColor = "yes"
-var hullColor = "yes"
-var amaColor = "yes"
-var stickerStatus = "yes"
+let boatType = "Noio"
+let deckColor = "yes"
+let hullColor = "yes"
+let amaColor = "yes"
+let stickerStatus = "yes"
 
 // onclick="exportAsImage('body', 'test')"
 
@@ -102,32 +102,32 @@ function changeColor(red, green, blue, placement){
     imgData.data[i+3] = 255;
   };
   if(red == 255 && green == 0){
-    var color = "red"
+    color = "red"
   }
   else if(green == 255 && red == 0){
-    var color = "green"
+    color = "green"
   }
   else if(blue == 255 && green == 0){
-    var color = "blue"
+    color = "blue"
   }
   else if(blue == 255 && red == 255 && green == 255){
-    var color = "white"
+    color = "white"
   };
   if(placement == "Deck"){
     ctx.putImageData(imgData, 0, 0, 0, 165, 1000, 100);
     ctx.putImageData(imgData, 0, 0, 0, 400, 1000, 50);
-    var deckColor = "The deck is " + color
+    deckColor = "The deck is " + color
     console.log(deckColor);
   }
   else if(placement == "Hull"){
     ctx.putImageData(imgData, 0, 0, 0, 450, 1000, 75);
-    var hullColor = "The hull is " + color
+    hullColor = "The hull is " + color
     console.log(hullColor);
   }
   else if(placement == "Ama"){
     ctx.putImageData(imgData, 0, 0, 0, 0, 1000, 59);
     ctx.putImageData(imgData, 0, 0, 0, 300, 1000, 80);
-    var amaColor = "The ama is " + color
+    amaColor = "The ama is " + color
     console.log(amaColor);
   };
   return(amaColor, hullColor, deckColor)
@@ -138,8 +138,7 @@ function changeColor(red, green, blue, placement){
 
 
 function confirmMessage(){
-  var boatType = boatType
-  // var confirmAlert = confirm("Please ensure the following is correct \nThis is a " + boatType + ", " + deckColor + ", " + hullColor + ", " + amaColor + " and " + stickerStatus);
+  var confirmAlert = confirm("Please ensure the following is correct \nThis is a " + boatType + ", " + deckColor + ", " + hullColor + ", " + amaColor + " and " + stickerStatus);
   var confirmAlert = confirm("Is this the correct layup of your canoe?")
   if(confirmAlert == true){
     console.log("Correct order")
