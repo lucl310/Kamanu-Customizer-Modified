@@ -151,10 +151,12 @@ function changeSticker() {
   // var imageHTML = document.getElementById("tribalSticker")
   // var placedSticker = imageHTML.cloneNode();
   var placedSticker = document.createElement("img")
+  var stickerHolder = document.getElementById("toBeScreenshot")
+  stickerHolder.appendChild(placedSticker)
   placedSticker.src = "tribalDesign.png"
-  placedSticker.setAttribute("style", " transform: rotate(95deg); position: absolute; width: 50px; height: auto; top: 88.75%; left: 40%;")
+  placedSticker.setAttribute("style", " transform: rotate(95deg); position: absolute; width: 50px; height: auto; top: 88.75%; left: 39%;")
   placedSticker.setAttribute("id", "tribalStickers")
-  document.getElementById("placedSticker").appendChild(placedSticker)
+  // document.getElementById("placedSticker").appendChild(placedSticker)
   // document.getElementById("placedSticker") = placedSticker
   // ctx.drawImage(img, 0, 0);
   // img.src = "tribalDesign.png" //ADD IMAGE SOURCE URI

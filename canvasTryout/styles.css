@@ -126,3 +126,10 @@ button{
 .colorButton{
 	border-width: 5px;
 }
+#toBeScreenshot{
+	height: 595px;
+	background-color: #94a3b8;
+}
+#myCanvas{
+	border-color: #94a3b8;
+}

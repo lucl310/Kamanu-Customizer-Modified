@@ -1,3 +1,4 @@
+// import { FLAG_NUMBER } from 'html2canvas/dist/types/css/syntax/tokenizer.js';
 import html2canvas from './html2canvas.esm.js';
 
 var c = document.getElementById("myCanvas");
@@ -6,11 +7,14 @@ var img = new Image()
 
 window.exportAsImage = function exportAsImage(element, imageFilename){
     console.log("dhasfj")
-    html2canvas(document.getElementById("myCanvas")).then(function(canvas) {
+    html2canvas(document.getElementById("toBeScreenshot")).then(function(canvas) {
         var canvasimage = document.body.appendChild(canvas);
+        // canvasimage.y = (document.body, {yoffset: 1500})
+        // canvasimage.height = (document.body, {height: 595})
         canvasimage.setAttribute("id","canvasImage")
         document.getElementById("canvasImage").download
         canvasimage.style.display = "none"
+        canvasimage.style.backgroundcolor = "#94a3b8";
     });
     async(element, imageFileName) => {
     var html = document.getElementsByTagName("html")[0];
@@ -33,6 +37,10 @@ window.exportAsImage = function exportAsImage(element, imageFilename){
   }
 };
 console.log("f")
+
+// function exportAsImage(element, imageFilename){
+//     html2canvas(document.body, {y: 500})
+// }
 
 //if not working, remove function and screenshot from the async and remove the screenshot call at the bottom of the function and canvas var await back to html2canvas
 
