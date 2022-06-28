@@ -62,6 +62,10 @@ function clearClick() {
     var removeStickers = document.getElementById("tribalStickers").remove();
     numStickers = numStickers - 1;
   };
+  deckColor = "yes"
+  hullColor = "yes"
+  amaColor = "yes"
+  stickerStatus = "There are no stickers on the boat"
   console.clear()
   console.log("The layup has been cleared");
 };
