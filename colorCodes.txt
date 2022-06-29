@@ -1,30 +1,32 @@
-base white - 255,255,255
-crystal white - 233,236,238
-seagull gray - 191,190,190
+baseWhite - 255,255,255
+crystalWhite - 233,236,238
+seagullGray - 191,190,190
 platinum - 174,178,182
-medium gray - 118,121,124
+mediumGray - 118,121,124
 charcoal - 53,56,58
 ivory - 244,229,190
 quicksand - 226,212,169
-spanish gold - 180,117,43
+spanishGold - 180,117,43
 cafe - 109,87,74
-oak brown - 61,31,23
-deep purple - 73,32,90
-canary yellow - 241,208,23
-buttercup yellow - 234,177,31
-atomic tangerine - 220,62,38
-international orange - 195,59,39
+oakBrown - 61,31,23
+deepPurple - 73,32,90
+canaryYellow - 241,208,23
+buttercupYellow - 234,177,31
+atomicTangerine - 220,62,38
+internationalOrange - 195,59,39
 red - 190,34,39
-bubble gum - 201,67,151
-lime green - 65,175,14
-deep lime green - 24,155,24
-conda green - 7,89,0
-forest green - 8,58,38
-dark green - 16,27,19
+bubbleGum - 201,67,151
+limeGreen - 65,175,14
+deepLimeGreen - 24,155,24
+condaGreen - 7,89,0
+forestGreen - 8,58,38
+darkGreen - 16,27,19
 boysenberry - 99,85,164
 aqua - 51,153,153
 teal - 0,79,89
-neon blue - 44,115,168
+neonBlue - 44,115,168
 blue - 16,53,191
-midnight blue - 14,33,102
+midnightBlue - 14,33,102
 purple - 117,55,123
+
+either have color buttons and select color then click either ama or deck to change the color OR keep current deck color / hull color buttons

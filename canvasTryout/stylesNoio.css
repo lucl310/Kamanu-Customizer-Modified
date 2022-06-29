@@ -30,7 +30,7 @@ p{
 	padding-left: 41.71%;
 	padding-right: 41.71%;
 	z-index: 1000;
-	width: 16.6%;
+    width: 16.5%;
 }
 #firstLine{
 	/* top: 100px;
@@ -57,46 +57,6 @@ p{
 #noioDupe{
 	text-align: center;
 	margin: 20px;
-}
-#blueButton{
-	background-color: blue;
-}
-#redButton{
-	background-color: red;
-}
-#whiteButton{
-	background-color: white;
-}
-#greenButton{
-	background-color: green;
-}
-#blueButtonHull{
-	background-color: blue;
-}
-#redButtonHull{
-	background-color: red;
-}
-#whiteButtonHull{
-	background-color: white;
-}
-#greenButtonHull{
-	background-color: green;
-}
-#blueButtonAma{
-	background-color: blue;
-}
-#redButtonAma{
-	background-color: red;
-}
-#whiteButtonAma{
-	background-color: white;
-}
-#greenButtonAma{
-	background-color: green;
-}
-#myCanvas{
-	/*margin-left: 5%;*/
-	height: 595px;
 }
 #divider{
 	margin: 17.5px;
@@ -128,7 +88,7 @@ button{
 	border-width: 5px;
 }
 #toBeScreenshot{
-	height: 595px;
+    height: 200px;
 	background-color: #94a3b8;
 }
 #myCanvas{
