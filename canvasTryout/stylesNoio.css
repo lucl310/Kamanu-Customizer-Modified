@@ -37,23 +37,6 @@ p{
 	position: relative; */
 	padding-top: 2.5cm;
 }
-#overlay{
-	position: absolute;
-	/*left: 0px;*/
-	text-align: center;
-	top: 72.25%;
-	left: 22.25%;
-}
-#sticker{
-	transform: rotate(95deg);
-	position: absolute;
-	/*resize: both;
-	overflow: auto;*/
-	width: 50px;
-	height: auto;
-	top: 73%;
-	left: 41%;
-}
 #noioDupe{
 	text-align: center;
 	margin: 20px;
@@ -85,7 +68,9 @@ button{
 	left: 55%;
 }
 .colorButton{
-	border-width: 5px;
+	border-width: 0px;
+    width: 30px;
+    height: 15px;
 }
 #toBeScreenshot{
     height: 200px;
@@ -93,6 +78,34 @@ button{
 }
 #myCanvas{
 	border-color: #94a3b8;
+}
+#shading{
+    left: 0%;
+}
+#composite_Image{
+    /* position: absolute; */
+    /* margin-top: 25px; */
+    left: 0px;
+}
+#deckPic{
+    position: absolute;
+}
+#amaPic{
+    position: absolute;
+}
+#shading{
+    position: absolute;
+    /* top: 63.8%; */
+    margin-top: 2.2%;
+    /* left: -10px; */
+}
+#amaShading{
+    position: absolute;
+    left: 0%;
+    margin-top: -1.35%;
+}
+#toBeScreenshot{
+    /* width: 100%; */
 }
 
 
