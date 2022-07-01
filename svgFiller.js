@@ -1,3 +1,17 @@
+const canvas = document.getElementById('drawing-board');
+const ctx = canvas.getContext('2d');
+
+const canvasOffsetX = canvas.offsetLeft;
+const canvasOffsetY = canvas.offsetTop;
+
+canvas.width = window.innerWidth - canvasOffsetX;
+canvas.height = window.innerHeight - canvasOffsetY;
+
+let isPainting = false;
+let lineWidth = 5;
+let startX;
+let startY;
+
 console.log("I work")
 
 document.getElementById("amaPic").style.fill = "rgb(118,121,124)"
@@ -11,6 +25,7 @@ let amaColor = "rgb(118,121,124)"
 
 function changeColor(red, green, blue){
     currentColor = "rgb(" + red + "," + green + "," + blue + ")"
+    ctx.strokeStyle = currentColor
 };
 
 function deckChange(){
@@ -24,6 +39,19 @@ function amaChange(){
 function clearClick() {
     document.getElementById("amaPic").style.fill = "rgb(118,121,124)"
     document.getElementById("deckPic").style.fill = "rgb(118,121,124)"
+    
+    var img = new Image()
+    var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+    var i;
+    for (i = 0; i < imgData.data.length; i += 4) {
+      imgData.data[i] = 148;
+      imgData.data[i+1] = 163;
+      imgData.data[i+2] = 184;
+      imgData.data[i+3] = 255;
+    };
+    ctx.putImageData(imgData, 0, 0);
+    ctx.drawImage(img, 50, 0);
     console.clear()
     console.log("The layup has been cleared");
 };
@@ -53,3 +81,30 @@ function showDesigns(){
       doneLayups.style.display = "none"
     }
 };
+
+const draw = (e) => {
+    if(!isPainting) {
+        return;
+    }
+
+    ctx.lineWidth = lineWidth;
+    ctx.lineCap = 'round';
+
+    ctx.lineTo(e.clientX - canvasOffsetX/2 - 5, e.clientY - canvasOffsetY + 7.5);
+    ctx.stroke();
+}
+
+canvas.addEventListener('mousedown', (e) => {
+    isPainting = true;
+    startX = e.clientX;
+    startY = e.clientY;
+});
+
+canvas.addEventListener('mouseup', e => {
+    isPainting = false;
+    ctx.stroke();
+    ctx.beginPath();
+});
+
+canvas.addEventListener('mousemove', draw);
+

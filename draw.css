@@ -73,7 +73,7 @@ button{
     height: 15px;
 }
 #toBeScreenshot{
-    height: 425px;
+    height: 200px;
 	background-color: #94a3b8;
 }
 #myCanvas{
@@ -96,20 +96,20 @@ button{
 #shading{
     position: absolute;
     /* top: 63.8%; */
-    margin-top: 2.3%;
+    margin-top: -2.7%;
     /* left: -10px; */
 }
 #amaShading{
     position: absolute;
     left: 0%;
-    margin-top: -1.35%;
+    margin-top: -6.35%;
 }
 #toBeScreenshot{
     /* width: 100%; */
 }
 #drawing-board{
-    margin-top: 5px;
-    height: 250px;
+    margin-top: 50px;
+    height: 200px;
 }
 
 #baseWhite{

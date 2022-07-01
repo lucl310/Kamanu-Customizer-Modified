@@ -9,10 +9,11 @@ window.exportAsImage = function exportAsImage(element, imageFilename){
     console.log("dhasfj")
     html2canvas(document.getElementById("toBeScreenshot")).then(function(canvas) {
         var canvasimage = document.body.appendChild(canvas);
-        // canvasimage.y = (document.body, {yoffset: 1500})
+        canvasimage.y = (document.body, {yoffset: 1500})
         // canvasimage.height = (document.body, {height: 595})
         canvasimage.setAttribute("id","canvasImage")
         document.getElementById("canvasImage").download
+        canvasimage.style.margin = "50px 0px"
         canvasimage.style.display = "none"
         canvasimage.style.backgroundcolor = "#94a3b8";
     });

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
     <!-- <script src="getImageDatatryout.js"></script> -->
-    <link rel="stylesheet" type="text/css" href="canvastryout/stylesNoio.css">
+    <link rel="stylesheet" type="text/css" href="./draw.css">
     <link href='https://fonts.googleapis.com/css?family=Bree Serif' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Average Sans' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Domine' rel='stylesheet'>
     <link href="https://storage.googleapis.com/b.kamanucomposites.com/static/favicon-32x32.png" rel="icon">
     <meta charset="utf-8">
-    <script src="./imageGeneratorNoio.js" type="module"></script>
+    <script src="./draw.js" defer></script>
     <title>Customize your canoe</title>
     <body>
 
@@ -34,9 +34,8 @@
         <button class="colorButton" id="midnightBlue" onclick="changeColor(14,33,102)"></button><button class="colorButton" id="purple" onclick="changeColor(117,55,123)"></button>
         <p></p>
 
-        <!--<p>Stickers:</p>
+        <p>Stickers:</p>
         <button class="colorButton" id="stickerButton" onclick="changeSticker()"></button>
-        <div id="divider">a</div> -->
         <p>Canvas:</p>
         <button onmouseup="confirmMessage()" onclick="exportAsImage('body', 'canoeLayup')">Capture Image</button>
 
@@ -48,11 +47,10 @@
             </svg>
             <img onclick="amaChange()" id="amaShading" src="amaShading.png" alt="amashade" width="100%">
             <img onclick="deckChange()" id="shading" src="deckOnlyShading.png" alt="deckShade" width="100%">
-            <p>Design a sticker</p>
             <canvas id="drawing-board" width="900" height="530" style="border:1px solid #d3d3d3;" onload="clearClick();"></canvas>
         </div>
 
     </body>
-<!-- <script src="./getImageDatatryout.js" crossorigin="anonymous"></script> -->
+<script src="./getImageDatatryout.js" crossorigin="anonymous"></script>
 <script src="./svgFiller.js"></script>
 </html>

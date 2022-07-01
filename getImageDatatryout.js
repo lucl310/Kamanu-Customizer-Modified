@@ -3,18 +3,18 @@
 
 // var html2canvas = require('html2canvas');
 // var exportRef = useRef();
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-var img = new Image()
+// var c = document.getElementById("myCanvas");
+// var ctx = c.getContext("2d");
+// var img = new Image()
 let deck = "Deck"
 let hull = "Hull"
 let ama = "Ama"
 // var floaters = document.getElementsByClassName("floats")
 // var sticky = floaters.offsetTop();
 let boatType = "Pueo"
-let deckColor = "yes"
-let hullColor = "yes"
-let amaColor = "yes"
+// let deckColor = "yes"
+// let hullColor = "yes"
+// let amaColor = "yes"
 let stickerStatus = "There are no stickers on the boat"
 
 // onclick="exportAsImage('body', 'test')"
@@ -27,21 +27,6 @@ document.addEventListener("mousemove", () => {
   let mousey = event.clientY;
 });
 
-window.onload = function colorChange() {
-  img.onload = function () {
-    ctx.drawImage(img, 50, 0);
-    var imgData = ctx.getImageData(0, 0, c.width, c.height);
-
-    var i;
-    for (i = 0; i < imgData.data.length; i += 4) {
-      imgData.data[i] = 255 - imgData.data[i];
-      imgData.data[i+1] = 255 - imgData.data[i+1];
-      imgData.data[i+2] = 255 - imgData.data[i+2];
-      imgData.data[i+3] = 255;
-    };
-    ctx.putImageData(imgData, 0, 0);
-  };
-};
 
 function clearClick() {
   var img = new Image()
