@@ -39,7 +39,7 @@ function amaChange(){
 function clearClick() {
     document.getElementById("amaPic").style.fill = "rgb(118,121,124)"
     document.getElementById("deckPic").style.fill = "rgb(118,121,124)"
-    
+
     var img = new Image()
     var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 

@@ -1,17 +1,22 @@
-// const c = document.getElementById("myCanvas");
-// const ctx = c.getContext("2d");
-// const img = new Image()
+// const canvas = document.getElementById('drawing-board');
+// const ctx = canvas.getContext('2d');
 
-// const canvasOffsetX = c.offsetLeft;
-// const canvasOffsetY = c.offsetTop;
+// const canvasOffsetX = canvas.offsetLeft;
+// const canvasOffsetY = canvas.offsetTop;
 
-// c.width = window.innerWidth - canvasOffsetX;
-// c.height = window.innerHeight - canvasOffsetY;
+// canvas.width = window.innerWidth - canvasOffsetX;
+// canvas.height = window.innerHeight - canvasOffsetY;
 
 // let isPainting = false;
 // let lineWidth = 5;
 // let startX;
 // let startY;
+
+
+// document.addEventListener("mousemove", () => {
+//     let mousex = event.clientX;
+//     let mousey = event.clientY;
+// });
 
 // const draw = (e) => {
 //     if(!isPainting) {
@@ -21,56 +26,9 @@
 //     ctx.lineWidth = lineWidth;
 //     ctx.lineCap = 'round';
 
-//     ctx.lineTo(e.clientX - canvasOffsetX, e.clientY);
+//     ctx.lineTo(e.clientX - canvasOffsetX/2, e.clientY - canvasOffsetY);
 //     ctx.stroke();
 // }
-
-// c.addEventListener('mousedown', (e) => {
-//     isPainting = true;
-//     startX = e.clientX;
-//     startY = e.clientY;
-// });
-
-// c.addEventListener('mouseup', e => {
-//     isPainting = false;
-//     ctx.stroke();
-//     ctx.beginPath();
-// });
-
-// c.addEventListener('mousemove', draw);
-
-
-const canvas = document.getElementById('drawing-board');
-const ctx = canvas.getContext('2d');
-
-const canvasOffsetX = canvas.offsetLeft;
-const canvasOffsetY = canvas.offsetTop;
-
-canvas.width = window.innerWidth - canvasOffsetX;
-canvas.height = window.innerHeight - canvasOffsetY;
-
-let isPainting = false;
-let lineWidth = 5;
-let startX;
-let startY;
-
-
-document.addEventListener("mousemove", () => {
-    let mousex = event.clientX;
-    let mousey = event.clientY;
-});
-
-const draw = (e) => {
-    if(!isPainting) {
-        return;
-    }
-
-    ctx.lineWidth = lineWidth;
-    ctx.lineCap = 'round';
-
-    ctx.lineTo(e.clientX - canvasOffsetX/2, e.clientY - canvasOffsetY);
-    ctx.stroke();
-}
 
 canvas.addEventListener('mousedown', (e) => {
     isPainting = true;
@@ -114,3 +72,40 @@ function clearClick() {
     console.clear()
     console.log("The layup has been cleared");
   };
+
+
+function makeDraggable(evt) {
+    var svg = evt.target;
+    svg.addEventListener('mousedown', startDrag);
+    svg.addEventListener('mousemove', drag);
+    svg.addEventListener('mouseup', endDrag);
+    svg.addEventListener('mouseleave', endDrag);
+    var selectedElement = false;
+    var selectedElement, offset;
+    console.log("drag me")
+    function getMousePosition(evt) {
+        var CTM = svg.getScreenCTM();
+        return {
+          x: (evt.clientX - CTM.e) / CTM.a,
+          y: (evt.clientY - CTM.f) / CTM.d
+        };
+      }
+    function startDrag(evt) {
+        if (evt.target.classList.contains('draggable')) {
+            selectedElement = evt.target;
+            offset = getMousePosition(evt);
+            offset.x -= parseFloat(selectedElement.getAttributeNS(null, "x"));
+            offset.y -= parseFloat(selectedElement.getAttributeNS(null, "y"));
+        }
+    }
+    function drag(evt) {
+        if (selectedElement) {
+          evt.preventDefault();
+          var coord = getMousePosition(evt);
+          transform.setTranslate(coord.x - offset.x, coord.y - offset.y);
+        }
+      }
+    function endDrag(evt) {
+        selectedElement = null;
+    }
+}
