@@ -108,3 +108,15 @@ canvas.addEventListener('mouseup', e => {
 
 canvas.addEventListener('mousemove', draw);
 
+function resize(){
+    if(lineWidth == 5){
+        lineWidth = 10
+    } else if (lineWidth == 10){
+        lineWidth = 15
+    } else if (lineWidth == 15){
+        lineWidth = 20
+    } else if (lineWidth == 20){
+        lineWidth = 5
+    }
+    document.getElementById('cursorSize').innerHTML = "Cursor size: " + lineWidth;
+}
