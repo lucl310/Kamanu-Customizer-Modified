@@ -90,7 +90,7 @@ const draw = (e) => {
     ctx.lineWidth = lineWidth;
     ctx.lineCap = 'round';
 
-    ctx.lineTo(e.clientX - canvasOffsetX/2 - 5, e.clientY - canvasOffsetY + 7.5);
+    ctx.lineTo(e.clientX - canvasOffsetX/2 + 5, e.clientY - canvasOffsetY + 150);
     ctx.stroke();
 }
 
