@@ -30,9 +30,9 @@ function changeColor(red, green, blue){
     currentColor = "rgb(" + red + "," + green + "," + blue + ")"
     ctx.strokeStyle = currentColor
 	if(red == "erase"){
-		ctx.globalCompositeOperation="destination-out"
+		ctx.globalCompositeOperation = "destination-out"
 	}else{
-		ctx.globalCompositeOperation="source-over"
+		ctx.globalCompositeOperation = "source-over"
 	}
 };
 
@@ -90,7 +90,7 @@ const draw = (e) => {
     ctx.lineWidth = lineWidth;
     ctx.lineCap = 'round';
 
-    ctx.lineTo(e.pageX - canvasOffsetX, e.pageY - canvasOffsetY + 30);
+    ctx.lineTo(e.pageX - canvasOffsetX, e.pageY - canvasOffsetY + 60);
     ctx.stroke();
 }
 
@@ -145,24 +145,24 @@ function resize(){
 }
 
 
-function colorpick (e) {
-    var c = canvas.getContext('2d');
+// function colorpick (e) {
+//     var c = canvas.getContext('2d');
 
-    let roundStartX = Math.trunc(startX);
-    let roundStartY = Math.trunc(startY);
+//     let roundStartX = Math.trunc(startX);
+//     let roundStartY = Math.trunc(startY);
 
-    var p = c.getImageData(roundStartX, roundStartY, 1, 1).data;
-    var actualColor = ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
-    $('#colorOutput').css("background-color", "#" + actualColor);
+//     var p = c.getImageData(roundStartX, roundStartY, 1, 1).data;
+//     var actualColor = ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
+//     $('#colorOutput').css("background-color", "#" + actualColor);
 
-    console.log("yes")
-};
-function rgbToHex(r, g, b) {
-    console.log(componentToHex(r) + componentToHex(g) + componentToHex(b))
+//     console.log("yes")
+// };
+// function rgbToHex(r, g, b) {
+//     console.log(componentToHex(r) + componentToHex(g) + componentToHex(b))
 
-    return componentToHex(r) + componentToHex(g) + componentToHex(b);
-}
-function componentToHex(c) {
-    var hex = c.toString(16);
-    return hex.length == 1 ? "0" + hex : hex;
-}
+//     return componentToHex(r) + componentToHex(g) + componentToHex(b);
+// }
+// function componentToHex(c) {
+//     var hex = c.toString(16);
+//     return hex.length == 1 ? "0" + hex : hex;
+// }

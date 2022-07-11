@@ -12,6 +12,7 @@ window.exportAsImage = function exportAsImage(element, imageFilename){
         canvasimage.y = (document.body, {yoffset: 1500})
         // canvasimage.height = (document.body, {height: 595})
         canvasimage.setAttribute("id","canvasImage")
+        canvasimage.setAttribute("draggable", "true")
         document.getElementById("canvasImage").download
         canvasimage.style.margin = "50px 0px"
         canvasimage.style.display = "none"
@@ -37,7 +38,7 @@ window.exportAsImage = function exportAsImage(element, imageFilename){
     console.log("Im working better")
   }
 };
-console.log("f")
+console.log("Kahe koko omao")
 
 var downloadImage = (blob, fileName) => {
   var fakeLink = window.document.createElement("a");

@@ -126,6 +126,15 @@ button{
 	margin: -5px;
 	margin-left: -5.75px;
 }
+#eraser{
+	font-size: 10px;
+	width: 25px
+}
+#erasePic{
+	margin: -5px;
+	margin-left: -5.75px;
+	width: 25px;
+}
 
 #baseWhite{
 	background-color: rgb(255,255,255);

@@ -26,6 +26,11 @@ let amaColor = "rgb(118,121,124)"
 function changeColor(red, green, blue){
     currentColor = "rgb(" + red + "," + green + "," + blue + ")"
     ctx.strokeStyle = currentColor
+    if(red == "erase"){
+        ctx.globalCompositeOperation = "destination-out"
+    }else{
+        ctx.globalCompositeOperation = "source-over"
+    }
 };
 
 function deckChange(){
@@ -120,3 +125,17 @@ function resize(){
     }
     document.getElementById('cursorSize').innerHTML = "Cursor size: " + lineWidth;
 }
+
+function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  function drag(ev) {
+    ev.dataTransfer.setData("Text", ev.target.id);
+  }
+
+  function drop(ev) {
+    var data = ev.dataTransfer.getData("Text");
+    ev.target.appendChild(document.getElementById(data));
+    ev.preventDefault();
+  }
