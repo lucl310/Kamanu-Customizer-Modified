@@ -110,6 +110,7 @@ button{
 	border: none;
 	border-color: transparent;
 	outline: none;
+	stroke: none;
 }
 #hullDraw{
 	/* position: absolute; */

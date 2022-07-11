@@ -29,6 +29,11 @@ let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 function changeColor(red, green, blue){
     currentColor = "rgb(" + red + "," + green + "," + blue + ")"
     ctx.strokeStyle = currentColor
+	if(red == "erase"){
+		ctx.globalCompositeOperation="destination-out"
+	}else{
+		ctx.globalCompositeOperation="source-over"
+	}
 };
 
 function deckChange(){

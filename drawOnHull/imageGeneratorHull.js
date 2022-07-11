@@ -39,12 +39,6 @@ window.exportAsImage = function exportAsImage(element, imageFilename){
 };
 console.log("f")
 
-// function exportAsImage(element, imageFilename){
-//     html2canvas(document.body, {y: 500})
-// }
-
-//if not working, remove function and screenshot from the async and remove the screenshot call at the bottom of the function and canvas var await back to html2canvas
-
 var downloadImage = (blob, fileName) => {
   var fakeLink = window.document.createElement("a");
   // fakeLink.style = "display:none;";
