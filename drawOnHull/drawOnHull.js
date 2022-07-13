@@ -31,6 +31,12 @@ function changeColor(red, green, blue){
     ctx.strokeStyle = currentColor
 	if(red == "erase"){
 		ctx.globalCompositeOperation = "destination-out"
+		document.getElementById('eraserPic').style.opacity = "80%";
+		document.getElementById('eraser').style.opacity = "80%";
+		document.getElementById('pencilPic').style.opacity = "100%";
+		document.getElementById('pencil').style.opacity = "100%";
+		document.getElementById('bucketPic').style.opacity = "100%";
+		document.getElementById('paintBucket').style.opacity = "100%";
 	}else{
 		ctx.globalCompositeOperation = "source-over"
 	}
@@ -40,10 +46,12 @@ function deckChange(){
     document.getElementById("deckPic").style.fill = currentColor
     deckColor = currentColor
 };
+
 function amaChange(){
     document.getElementById("amaPic").style.fill = currentColor
     amaColor = currentColor
 };
+
 function clearClick() {
 
     ctx.putImageData(imgData, 0, 0);
@@ -55,6 +63,7 @@ function clearClick() {
     console.clear()
     console.log("The layup has been cleared");
 };
+
 function confirmMessage(){
     if(amaColor == "rgb(118,121,124)" && deckColor == "rgb(118,121,124)"){
       var confirmAlert = confirm("Please ensure the following is correct \nThis is a stock grey Noio")
@@ -76,9 +85,11 @@ function confirmMessage(){
 function showDesigns(){
     var doneLayups = document.getElementById("canvasImage")
     if(doneLayups.style.display == "none"){
-      doneLayups.style.display = "initial"
+		console.log('displays shown')
+		doneLayups.style.display = "initial"
     } else if(doneLayups.style.display == "initial"){
-      doneLayups.style.display = "none"
+      	console.log("displays hidden")
+		doneLayups.style.display = "none"
     }
 };
 
@@ -92,6 +103,7 @@ const draw = (e) => {
 
     ctx.lineTo(e.pageX - canvasOffsetX, e.pageY - canvasOffsetY + 60);
     ctx.stroke();
+	console.log('painting')
 }
 
 canvas.addEventListener('mousedown', (e) => {
@@ -110,20 +122,34 @@ canvas.addEventListener('mouseup', e => {
 
 canvas.addEventListener('mousemove', draw);
 
-function changeZ(){
-    if(document.getElementById('shading').style.zIndex == 1001){
-        document.getElementById('shading').style.zIndex = "0";
-        document.getElementById('amaShading').style.zIndex = "0";
-        document.getElementById('amaPic').style.zIndex = "8";
-        document.getElementById('deckPic').style.zIndex = "8";
-        document.getElementById('composite_Image').style.zIndex = "8";
-    } else if (document.getElementById('shading').style.zIndex == 0){
-        document.getElementById('shading').style.zIndex = "1001";
-        document.getElementById('amaShading').style.zIndex = "1001";
-        document.getElementById('amaPic').style.zIndex = "1001";
-        document.getElementById('deckPic').style.zIndex = "1001";
-        document.getElementById("composite_Image").style.zIndex = "1000"
-    }
+function bucketSwitch(){
+	document.getElementById('shading').style.zIndex = "1001";
+	document.getElementById('amaShading').style.zIndex = "1001";
+	document.getElementById('amaPic').style.zIndex = "1001";
+	document.getElementById('deckPic').style.zIndex = "1001";
+	document.getElementById("composite_Image").style.zIndex = "1000";
+	document.getElementById('bucketPic').style.opacity = "80%";
+	document.getElementById('paintBucket').style.opacity = "80%";
+	document.getElementById('pencilPic').style.opacity = "100%";
+	document.getElementById('pencil').style.opacity = "100%";
+	document.getElementById('eraserPic').style.opacity = "100%";
+	document.getElementById('eraser').style.opacity = "100%";
+	ctx.globalCompositeOperation = "source-over"
+}
+
+function pencilSwitch(){
+	document.getElementById('shading').style.zIndex = "0";
+	document.getElementById('amaShading').style.zIndex = "0";
+	document.getElementById('amaPic').style.zIndex = "8";
+	document.getElementById('deckPic').style.zIndex = "8";
+	document.getElementById('composite_Image').style.zIndex = "8";
+	document.getElementById('bucketPic').style.opacity = "100%";
+	document.getElementById('paintBucket').style.opacity = "100%";
+	document.getElementById('pencilPic').style.opacity = "80%";
+	document.getElementById('pencil').style.opacity = "80%";
+	document.getElementById('eraserPic').style.opacity = "100%";
+	document.getElementById('eraser').style.opacity = "100%";
+	ctx.globalCompositeOperation = "source-over"
 }
 function resetZ(){
     document.getElementById('shading').style.zIndex = "1001";
@@ -143,26 +169,3 @@ function resize(){
     }
     document.getElementById('cursorSize').innerHTML = "Cursor size: " + lineWidth;
 }
-
-
-// function colorpick (e) {
-//     var c = canvas.getContext('2d');
-
-//     let roundStartX = Math.trunc(startX);
-//     let roundStartY = Math.trunc(startY);
-
-//     var p = c.getImageData(roundStartX, roundStartY, 1, 1).data;
-//     var actualColor = ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
-//     $('#colorOutput').css("background-color", "#" + actualColor);
-
-//     console.log("yes")
-// };
-// function rgbToHex(r, g, b) {
-//     console.log(componentToHex(r) + componentToHex(g) + componentToHex(b))
-
-//     return componentToHex(r) + componentToHex(g) + componentToHex(b);
-// }
-// function componentToHex(c) {
-//     var hex = c.toString(16);
-//     return hex.length == 1 ? "0" + hex : hex;
-// }

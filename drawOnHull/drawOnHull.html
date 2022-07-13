@@ -33,10 +33,12 @@
         <button class="colorButton" id="aqua" onclick="changeColor(51,153,153)"></button><button class="colorButton" id="teal" onclick="changeColor(0,79,89)"></button><button class="colorButton" id="neonBlue" onclick="changeColor(44,115,168)"></button><button class="colorButton" id="blue" onclick="changeColor(16,53,191)"></button>
         <button class="colorButton" id="midnightBlue" onclick="changeColor(14,33,102)"></button><button class="colorButton" id="purple" onclick="changeColor(117,55,123)"></button>
         <p></p>
-        <button class="colorButton" id="eraser" onclick="changeColor('erase')"><img id="erasePic" src="../eraser.jpg" alt="" width="25px"></button>
-        <p></p>
-        <button class="colorButton" id="resizer" onclick="resize()"><img id="resizePic" src="../size.webp" alt="" width="25px"></button>
+        <button class="colorButton" id="eraser" onclick="changeColor('erase')"><img id="eraserPic" src="../eraser.jpg" alt="" width="25px"></button>
+        <button class="colorButton" id="paintBucket" onclick="bucketSwitch()"><img id="bucketPic" src="../paintbucket.png" alt=""></button>
+        <button class="colorButton" id="pencil" onclick="pencilSwitch()"><img id="pencilPic" src="../pencil.png" alt=""></button>
         <p id="cursorSize">Cursor Size: 5</p>
+        <button class="colorButton" id="resizer" onclick="resize()"><img id="resizePic" src="../size.webp" alt="" width="25px"></button>
+        <p></p>
 
         <button onmouseup="confirmMessage()" onmousedown="resetZ()" onclick="exportAsImage('body', 'canoeLayup')">Capture Image</button>
 
@@ -51,8 +53,6 @@
             <img onclick="deckChange()" id="shading" src="../deckOnlyShading.png" alt="deckShade" width="100%">
             <!-- <p>Design a sticker</p> -->
         </div>
-        <button id="hullDraw" onclick="changeZ()">Draw on Hull</button>
-
     </body>
 <!-- <script src="./getImageDatatryout.js" crossorigin="anonymous"></script> -->
 <script src="./drawOnHull.js"></script>

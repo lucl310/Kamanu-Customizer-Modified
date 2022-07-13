@@ -3,9 +3,9 @@
 
 // var html2canvas = require('html2canvas');
 // var exportRef = useRef();
-// var c = document.getElementById("myCanvas");
-// var ctx = c.getContext("2d");
-// var img = new Image()
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var img = new Image()
 let deck = "Deck"
 let hull = "Hull"
 let ama = "Ama"

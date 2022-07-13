@@ -32,3 +32,6 @@ purple - 117,55,123
 either have color buttons and select color then click either ama or deck to change the color OR keep current deck color / hull color buttons
 
 add feature for customers to drag saved designs onto canoe and resize them?!
+
+make 3 buttons, eraser, draw, bucket
+simplify the UX
