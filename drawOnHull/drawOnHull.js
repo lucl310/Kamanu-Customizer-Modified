@@ -31,6 +31,11 @@ function changeColor(red, green, blue){
     ctx.strokeStyle = currentColor
 	if(red == "erase"){
 		ctx.globalCompositeOperation = "destination-out"
+		document.getElementById('shading').style.zIndex = "0";
+		document.getElementById('amaShading').style.zIndex = "0";
+		document.getElementById('amaPic').style.zIndex = "8";
+		document.getElementById('deckPic').style.zIndex = "8";
+		document.getElementById('composite_Image').style.zIndex = "8";
 		document.getElementById('eraserPic').style.opacity = "80%";
 		document.getElementById('eraser').style.opacity = "80%";
 		document.getElementById('pencilPic').style.opacity = "100%";
