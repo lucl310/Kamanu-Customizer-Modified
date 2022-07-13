@@ -1,19 +1,15 @@
-// import { FLAG_NUMBER } from 'html2canvas/dist/types/css/syntax/tokenizer.js';
 import html2canvas from '../html2canvas.esm.js';
-
-// var c = document.getElementById("myCanvas");
-// var ctx = c.getContext("2d");
-// var img = new Image()
 
 window.exportAsImage = function exportAsImage(element, imageFilename){
     console.log("dhasfj")
     html2canvas(document.getElementById("toBeScreenshot")).then(function(canvas) {
-        var canvasimage = document.body.appendChild(canvas);
+        let canvasimage = document.body.appendChild(canvas);
+        var downloadLink = document.getElementById('downloadButton')
         canvasimage.y = (document.body, {yoffset: 1500})
-        // canvasimage.height = (document.body, {height: 595})
         canvasimage.setAttribute("id","canvasImage")
         canvasimage.setAttribute("draggable", "true")
-        document.getElementById("canvasImage").download
+        downloadLink.setAttribute('href', canvasimage.toDataURL());
+        downloadLink.style.opacity = '100%'
         canvasimage.style.margin = "50px 0px"
         canvasimage.style.display = "none"
         canvasimage.style.backgroundcolor = "#94a3b8";
@@ -42,7 +38,6 @@ console.log("Kahe koko omao")
 
 var downloadImage = (blob, fileName) => {
   var fakeLink = window.document.createElement("a");
-  // fakeLink.style = "display:none;";
   fakeLink.download = fileName;
 
   fakeLink.href = blob;
@@ -53,7 +48,6 @@ var downloadImage = (blob, fileName) => {
   console.log("im working")
   fakeLink.remove();
   };
-// exportAsImage("body", "canoeLayup")
 
 
 export default exportAsImage;
