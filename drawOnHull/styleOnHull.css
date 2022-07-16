@@ -159,6 +159,9 @@ button{
 #downloadButton{
 	opacity: 0;
 }
+#frontDeck{
+	z-index: 100000;
+}
 
 
 #baseWhite{

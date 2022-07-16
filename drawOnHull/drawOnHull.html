@@ -39,6 +39,8 @@
         <button class="colorButton" id="resizer" onclick="resize()"><img id="resizePic" src="../size.webp" alt="" width="25px"></button>
         <p></p>
 
+        <img src="../tribalDesign.png" alt="" draggable="true" ondragstart="drag(event, 'tribalDesign')">
+
         <button onmouseup="confirmMessage()" onmousedown="resetZ()" onclick="exportAsImage('body', 'canoeLayup')">Save Design</button>
 
         <button class="funButton" id="clearButton" onclick="clearClick();">Clear Canvas</button> <button id="showButton" class="funButton" onclick="showDesigns()">Show/Hide Saved Designs</button>
@@ -50,6 +52,8 @@
             <canvas id="drawing-board" style="border:1px solid #d3d3d3;" onload="clearClick();"></canvas>
             <img onclick="deckChange('ama')" id="amaShading" src="../amaShading.png" alt="amashade" width="100%">
             <img onclick="deckChange('deck')" id="shading" src="../deckOnlyShading.png" alt="deckShade" width="100%">
+            <div width="500" height="500" id="frontDeck" ondragover="allowDrop(event)" ondrop="drop(event, 'frontDeck')"><p>a</p><p>a</p><p>a</p></div>
+            <div id="backDeck" ondragover="allowDrop(event)" ondrop="drop(event, 'backDeck')"></div>
         </div>
         <a download="layup.png" id="downloadButton">Download Design</a>
     </body>

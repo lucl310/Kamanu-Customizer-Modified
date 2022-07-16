@@ -8,6 +8,7 @@ window.exportAsImage = function exportAsImage(element, imageFilename){
         canvasimage.y = (document.body, {yoffset: 1500})
         canvasimage.setAttribute("id","canvasImage")
         canvasimage.setAttribute("draggable", "true")
+        canvasimage.setAttribute('ondragstart', 'drag(event)')
         downloadLink.setAttribute('href', canvasimage.toDataURL());
         downloadLink.style.opacity = '100%'
         canvasimage.style.margin = "50px 0px"

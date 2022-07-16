@@ -35,3 +35,11 @@ add feature for customers to drag saved designs onto canoe and resize them?!
 
 make 3 buttons, eraser, draw, bucket
 simplify the UX
+
+split the shading image into sections based on where the sticker would go
+whenever img is dropped over a certain portion of the canoe, it will go to a preset hull placement for that section
+
+can use getimagedata to draw stickers on the canvas or just create a new element
+sticker should be able to change color too
+
+have preset drag and drop designs, maybe dont need multiple sections of the shading, just have a div over it that gains z value whenever an image or sticker is being dragged
