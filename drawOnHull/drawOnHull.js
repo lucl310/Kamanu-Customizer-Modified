@@ -313,8 +313,8 @@ function toolSwitch(type){
 		document.getElementById('cover').style.display = "initial";
 		canvas.style.zIndex = "1";
 		showStickers()
-		document.getElementById('frontSticker').style.zIndex = "1";
-		document.getElementById('backSticker').style.zIndex = "1";
+		document.getElementById('frontSticker').style.zIndex = '1001';
+		document.getElementById('backSticker').style.zIndex = '1002';
 	}
 }
 
@@ -380,6 +380,8 @@ function drop(ev, location) {
 					placedSticker.setAttribute("style", " transform: rotate(90deg); position: absolute; width: 2.4vw; height: auto; top: 76.25vh; left: 34vw;")
 					placedSticker.setAttribute("id", "backSticker")
 					placedSticker.setAttribute("ondragstart", "replaceDrag(event, 'tribalDesign', 'backDeck')")
+					placedSticker.setAttribute("ondragover", "allowDrop(event)")
+					placedSticker.setAttribute("ondrop", "drop(event, 'backDeck')")
 					stickerOnBack = true
 					stickerOnFront = false
 					document.getElementById('backSticker').style.zIndex = '1002';
@@ -395,6 +397,8 @@ function drop(ev, location) {
 					placedSticker.setAttribute("style", " transform: rotate(95deg); position: absolute; width: 1.65vw; height: auto; top: 77.5vh; left: 78.5%;")
 					placedSticker.setAttribute("id", "frontSticker")
 					placedSticker.setAttribute("ondragstart", "replaceDrag(event, 'tribalDesign', 'frontDeck')")
+					placedSticker.setAttribute("ondragover", "allowDrop(event)")
+					placedSticker.setAttribute("ondrop", "drop(event, 'frontDeck')")
 					stickerOnFront = true
 					stickerOnBack = false
 					document.getElementById('frontSticker').style.zIndex = '1001';
@@ -413,6 +417,8 @@ function drop(ev, location) {
 					placedSticker.setAttribute("style", " transform: rotate(90deg); position: absolute; width: 2.4vw; height: auto; top: 80vh; left: 34%;")
 					placedSticker.setAttribute("id", "backSticker")
 					placedSticker.setAttribute("ondragstart", "replaceDrag(event, 'turtle', 'backDeck')")
+					placedSticker.setAttribute("ondragover", "allowDrop(event)")
+					placedSticker.setAttribute("ondrop", "drop(event, 'backDeck')")
 					stickerOnBack = true
 					stickerOnFront = false
 					document.getElementById('backSticker').style.zIndex = '1002';
@@ -428,6 +434,8 @@ function drop(ev, location) {
 					placedSticker.setAttribute("style", " transform: rotate(95deg); position: absolute; width: 1.6vw; height: auto; top: 80vh; left: 78.5%;")
 					placedSticker.setAttribute("id", "frontSticker")
 					placedSticker.setAttribute("ondragstart", "replaceDrag(event, 'turtle', 'frontDeck')")
+					placedSticker.setAttribute("ondragover", "allowDrop(event)")
+					placedSticker.setAttribute("ondrop", "drop(event, 'frontDeck')")
 					stickerOnFront = true
 					stickerOnBack = false
 					document.getElementById('frontSticker').style.zIndex = '1001';
@@ -452,6 +460,8 @@ function drop(ev, location) {
 				placedSticker.setAttribute("style", " transform: rotate(90deg); position: absolute; width: 2.4vw; height: auto; top: 76.25vh; left: 34vw;")
 				placedSticker.setAttribute("id", "backSticker")
 				placedSticker.setAttribute("ondragstart", "replaceDrag(event, 'tribalDesign', 'backDeck')")
+				placedSticker.setAttribute("ondragover", "allowDrop(event)")
+				placedSticker.setAttribute("ondrop", "drop(event, 'backDeck')")
 				stickerOnBack = true
 				document.getElementById('backSticker').style.zIndex = '1002';
 			} else if(location == "frontDeck"){
@@ -465,6 +475,8 @@ function drop(ev, location) {
 				placedSticker.setAttribute("style", " transform: rotate(95deg); position: absolute; width: 1.65vw; height: auto; top: 77.5vh; left: 78.5%;")
 				placedSticker.setAttribute("id", "frontSticker")
 				placedSticker.setAttribute("ondragstart", "replaceDrag(event, 'tribalDesign', 'frontDeck')")
+				placedSticker.setAttribute("ondragover", "allowDrop(event)")
+				placedSticker.setAttribute("ondrop", "drop(event, 'frontDeck')")
 				stickerOnFront = true
 				document.getElementById('frontSticker').style.zIndex = '1001';
 			}
@@ -480,6 +492,8 @@ function drop(ev, location) {
 				placedSticker.setAttribute("style", " transform: rotate(90deg); position: absolute; width: 2.4vw; height: auto; top: 80vh; left: 34%;")
 				placedSticker.setAttribute("id", "backSticker")
 				placedSticker.setAttribute("ondragstart", "replaceDrag(event, 'turtle', 'backDeck')")
+				placedSticker.setAttribute("ondragover", "allowDrop(event)")
+				placedSticker.setAttribute("ondrop", "drop(event, 'backDeck')")
 				stickerOnBack = true
 				document.getElementById('backSticker').style.zIndex = '1002';
 			} else if(location == "frontDeck"){
@@ -493,6 +507,8 @@ function drop(ev, location) {
 				placedSticker.setAttribute("style", " transform: rotate(95deg); position: absolute; width: 1.6vw; height: auto; top: 80vh; left: 78.5%;")
 				placedSticker.setAttribute("id", "frontSticker")
 				placedSticker.setAttribute("ondragstart", "replaceDrag(event, 'turtle', 'frontDeck')")
+				placedSticker.setAttribute("ondragover", "allowDrop(event)")
+				placedSticker.setAttribute("ondrop", "drop(event, 'frontDeck')")
 				stickerOnFront = true
 				document.getElementById('frontSticker').style.zIndex = '1001';
 			}
@@ -504,6 +520,7 @@ function drop(ev, location) {
 	document.getElementById('frontSticker').style.zIndex = '1001';
 	document.getElementById('backSticker').style.zIndex = '1002';
 	console.log('stickers')
+	document.getElementById("replace").remove();
 }
 
 function replaceDrag(ev, type, location){
