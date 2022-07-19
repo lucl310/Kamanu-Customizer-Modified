@@ -3,11 +3,11 @@ body{
 	text-align: center;
 	align-self: center;
 	font-family: "bree serif";
+	align-items: center;
 }
 p{
 	font-weight: lighter;
 	color: #333;
-
 }
 #logo{
 	position: fixed;
@@ -72,14 +72,6 @@ button{
     margin-top: 1.5%;
     left: 0px;
 }
-/* #deckPic{
-    position: absolute;
-	margin-top: 10.5%;
-}
-#amaPic{
-    position: absolute;
-	margin-top: 100%;
-} */
 #shading{
     position: absolute;
     /* top: 63.8%; */
@@ -156,11 +148,41 @@ button{
 	width: 25px;
 	height: 24px;
 }
+#sticker{
+	font-size: 10px;
+	width: 25px;
+	height: 25px;
+}
+#stickerPic{
+	margin: -5px;
+	margin-left: -5.75px;
+	width: 25px;
+	height: 24px;
+}
 #downloadButton{
 	opacity: 0;
 }
+#backDeck{
+	position: absolute;
+	align-items: center;
+	top: 77vh;
+	opacity: 0;
+}
+.backDeck{
+	width: 50vw;
+}
 #frontDeck{
-	z-index: 100000;
+	position: absolute;
+	align-items: center;
+	right: 0;
+	top: 78vh;
+	opacity: 0;
+}
+.frontDeck{
+	width: 50vw;
+}
+#sticker1{
+	display: inline;
 }
 
 
