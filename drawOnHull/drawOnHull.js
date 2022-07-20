@@ -171,14 +171,24 @@ function clearClick() {
     var numStickers = document.querySelectorAll(".tribalStickers").length + 1;
 	console.log(numStickers)
 	while(numStickers>=0){
-		document.getElementById("frontSticker").remove();
-		document.getElementById("backSticker").remove();
+		if(document.querySelectorAll("#frontSticker").length >= 1){
+			document.getElementById("frontSticker").remove()
+		}
+		if(document.querySelectorAll("#backSticker").length >= 1){
+			document.getElementById("backSticker").remove()
+		}
+		if(document.querySelectorAll("#replace").length >= 1){
+			document.getElementById("replace").remove()
+		}
+		if(document.querySelectorAll("#placedSticker").length >= 1){
+			document.getElementById("placedSticker").remove()
+		}
 		numStickers = numStickers - 1;
+		document.getElementById("placedSticker").remove
 	  };
-
-    console.clear()
     console.log("The layup has been cleared");
 };
+
 
 function confirmMessage(){
     if(amaColor == "rgb(118,121,124)" && deckColor == "rgb(118,121,124)"){
@@ -245,6 +255,8 @@ function toolSwitch(type){
 		document.getElementById('amaPic').style.zIndex = "1001";
 		document.getElementById('deckPic').style.zIndex = "1001";
 		document.getElementById('composite_Image').style.zIndex = "1000";
+		document.getElementById('sticker').style.opacity = "100%";
+		document.getElementById('stickerPic').style.opacity = "100%";
 		document.getElementById('bucketPic').style.opacity = "80%";
 		document.getElementById('paintBucket').style.opacity = "80%";
 		document.getElementById('pencilPic').style.opacity = "100%";
@@ -255,6 +267,8 @@ function toolSwitch(type){
 		canvas.style.zIndex = "0";
 		hideStickers()
 		ctx.globalCompositeOperation = "source-over"
+		document.getElementById('frontSticker').style.zIndex = "1";
+		document.getElementById('backSticker').style.zIndex = "1";
 	} else if(type == 'pencil'){
 		document.getElementById('shading').style.zIndex = "0";
 		document.getElementById('amaShading').style.zIndex = "0";
@@ -367,7 +381,29 @@ function drop(ev, location) {
 			placedSticker.remove();
 			console.log("yeseyut")
 		} else {
-			if(currentSticker == "tribalDesign"){
+			if(location == comingFrom){
+				console.log("please work")
+				placedSticker.remove()
+				var backDeckNumber = document.querySelectorAll("#replace").length
+				if(backDeckNumber >= 1){
+					console.log('heeheehaha')
+					while(backDeckNumber > 1){
+						document.getElementById("replace").remove();
+						backDeckNumber = backDeckNumber - 1;
+					}
+				}
+				// if(comingFrom == "backDeck"){
+				// 	document.getElementById("replace").remove();
+				// 	placedSticker.setAttribute("style", " transform: rotate(90deg); position: absolute; width: 2.4vw; height: auto; top: 76.25vh; left: 34vw;")
+				// 	placedSticker.setAttribute("id", "backSticker")
+				// 	placedSticker.setAttribute("ondragstart", "replaceDrag(event, 'tribalDesign', 'backDeck')")
+				// 	placedSticker.setAttribute("ondragover", "allowDrop(event)")
+				// 	placedSticker.setAttribute("ondrop", "drop(event, 'backDeck')")
+				// 	stickerOnBack = true
+				// 	stickerOnFront = false
+				// 	document.getElementById('backSticker').style.zIndex = '1002';
+				// }
+			} else if(currentSticker == "tribalDesign"){
 				if(comingFrom == "frontDeck"){
 					if(stickerOnBack = true){
 						var numBackStickers = document.querySelectorAll("#backSticker").length;
@@ -403,8 +439,7 @@ function drop(ev, location) {
 					stickerOnBack = false
 					document.getElementById('frontSticker').style.zIndex = '1001';
 				}
-			}
-			if(currentSticker == "turtle"){
+			} else if(currentSticker == "turtle"){
 				if(comingFrom == "frontDeck"){
 					if(stickerOnBack = true){
 						var numBackStickers = document.querySelectorAll("#backSticker").length;
@@ -514,13 +549,13 @@ function drop(ev, location) {
 			}
 		}
 	}
+	// document.getElementById("replace").remove();
 	placedSticker.setAttribute("class", "tribalStickers")
 	document.getElementById('frontDeck').style.zIndex = '1';
 	document.getElementById('backDeck').style.zIndex = '1';
 	document.getElementById('frontSticker').style.zIndex = '1001';
 	document.getElementById('backSticker').style.zIndex = '1002';
 	console.log('stickers')
-	document.getElementById("replace").remove();
 }
 
 function replaceDrag(ev, type, location){
