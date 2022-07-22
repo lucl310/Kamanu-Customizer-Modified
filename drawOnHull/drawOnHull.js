@@ -199,6 +199,7 @@ function confirmMessage(){
     if(confirmAlert == true){
       console.log("Correct order")
       var orderComplete = true
+	  resetZ()
       return(orderComplete)
     }
     else{
@@ -333,6 +334,9 @@ function toolSwitch(type){
 }
 
 function resetZ(){
+	document.getElementById('downloadButton').style.display = "initial";
+	document.getElementById('downloadLink').style.display = "initial";
+
     document.getElementById('shading').style.zIndex = "1001";
     document.getElementById('amaShading').style.zIndex = "1001";
     document.getElementById('amaPic').style.zIndex = "1001";
@@ -340,7 +344,6 @@ function resetZ(){
 	document.getElementById('frontSticker').style.zIndex = "1001";
 	document.getElementById('backSticker').style.zIndex = "1001";
 
-	document.getElementById('downloadButton').style.opacity = "100%";
 }
 
 function resize(){
@@ -375,35 +378,29 @@ function drop(ev, location) {
 	stickerHolder.appendChild(placedSticker)
 	placedSticker.src = "../" + currentSticker + ".svg"
 	console.log(location)
-	if(stickerId >= 1){
+	if(location == comingFrom){
+		console.log("please work")
+		placedSticker.remove()
+		var backDeckNumber = document.querySelectorAll("#replace").length
+		if(backDeckNumber >= 1){
+			console.log('heeheehaha')
+			while(backDeckNumber > 1){
+				document.getElementById("replace").remove();
+				backDeckNumber = backDeckNumber - 1;
+			}
+			// if(comingFrom == "frontDeck"){
+			// 	document.getElementById('replace').setAttribute('id', 'frontDeck')
+			// } else if(comingFrom == "backDeck"){
+			// 	document.getElementById('replace').setAttribute('id', 'backDeck')
+			// }
+		}
+	} else if(stickerId >= 1){
 		if(location == "delete"){
 			document.getElementById("replace").remove();
 			placedSticker.remove();
 			console.log("yeseyut")
 		} else {
-			if(location == comingFrom){
-				console.log("please work")
-				placedSticker.remove()
-				var backDeckNumber = document.querySelectorAll("#replace").length
-				if(backDeckNumber >= 1){
-					console.log('heeheehaha')
-					while(backDeckNumber > 1){
-						document.getElementById("replace").remove();
-						backDeckNumber = backDeckNumber - 1;
-					}
-				}
-				// if(comingFrom == "backDeck"){
-				// 	document.getElementById("replace").remove();
-				// 	placedSticker.setAttribute("style", " transform: rotate(90deg); position: absolute; width: 2.4vw; height: auto; top: 76.25vh; left: 34vw;")
-				// 	placedSticker.setAttribute("id", "backSticker")
-				// 	placedSticker.setAttribute("ondragstart", "replaceDrag(event, 'tribalDesign', 'backDeck')")
-				// 	placedSticker.setAttribute("ondragover", "allowDrop(event)")
-				// 	placedSticker.setAttribute("ondrop", "drop(event, 'backDeck')")
-				// 	stickerOnBack = true
-				// 	stickerOnFront = false
-				// 	document.getElementById('backSticker').style.zIndex = '1002';
-				// }
-			} else if(currentSticker == "tribalDesign"){
+			if(currentSticker == "tribalDesign"){
 				if(comingFrom == "frontDeck"){
 					if(stickerOnBack = true){
 						var numBackStickers = document.querySelectorAll("#backSticker").length;
@@ -466,7 +463,7 @@ function drop(ev, location) {
 						};
 					}
 					document.getElementById("replace").remove();
-					placedSticker.setAttribute("style", " transform: rotate(95deg); position: absolute; width: 1.6vw; height: auto; top: 80vh; left: 78.5%;")
+					placedSticker.setAttribute("style", " transform: rotate(95deg); position: absolute; width: 1.6vw; height: auto; top: 80.25vh; left: 78.5%;")
 					placedSticker.setAttribute("id", "frontSticker")
 					placedSticker.setAttribute("ondragstart", "replaceDrag(event, 'turtle', 'frontDeck')")
 					placedSticker.setAttribute("ondragover", "allowDrop(event)")
@@ -539,7 +536,7 @@ function drop(ev, location) {
 						numFrontStickers = numFrontStickers - 1;
 					};
 				}
-				placedSticker.setAttribute("style", " transform: rotate(95deg); position: absolute; width: 1.6vw; height: auto; top: 80vh; left: 78.5%;")
+				placedSticker.setAttribute("style", " transform: rotate(95deg); position: absolute; width: 1.6vw; height: auto; top: 80.25vh; left: 78.5%;")
 				placedSticker.setAttribute("id", "frontSticker")
 				placedSticker.setAttribute("ondragstart", "replaceDrag(event, 'turtle', 'frontDeck')")
 				placedSticker.setAttribute("ondragover", "allowDrop(event)")
@@ -549,8 +546,8 @@ function drop(ev, location) {
 			}
 		}
 	}
-	// document.getElementById("replace").remove();
 	placedSticker.setAttribute("class", "tribalStickers")
+	comingFrom = "home"
 	document.getElementById('frontDeck').style.zIndex = '1';
 	document.getElementById('backDeck').style.zIndex = '1';
 	document.getElementById('frontSticker').style.zIndex = '1001';

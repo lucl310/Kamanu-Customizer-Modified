@@ -43,3 +43,5 @@ can use getimagedata to draw stickers on the canvas or just create a new element
 sticker should be able to change color too
 
 have preset drag and drop designs, maybe dont need multiple sections of the shading, just have a div over it that gains z value whenever an image or sticker is being dragged
+
+maybe just remove the show saved designs feature and replace the button with the download button

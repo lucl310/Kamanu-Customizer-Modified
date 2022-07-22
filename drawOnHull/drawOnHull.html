@@ -40,9 +40,9 @@
         <button class="colorButton" id="resizer" onclick="resize()"><img id="resizePic" src="../size.webp" alt="" width="25px"></button>
         <p></p>
 
-        <button onmouseup="confirmMessage()" onmousedown="resetZ()" onclick="exportAsImage('body', 'canoeLayup')">Save Design</button>
+        <button onmouseup="confirmMessage()" onclick="exportAsImage('body', 'canoeLayup')">Save Design</button>
 
-        <button class="funButton" id="clearButton" onclick="clearClick();">Clear Canvas</button> <button id="showButton" class="funButton" onclick="showDesigns()">Show/Hide Saved Designs</button>
+        <button class="funButton" id="clearButton" onclick="clearClick();">Clear Canvas</button> <button id="downloadButton" class="funButton"><a download="layup.png" id="downloadLink">Download Design</a></button>
         <p></p>
 
         <div id="toBeScreenshot">
@@ -62,7 +62,7 @@
             <img id="sticker2" src="../turtle.svg" alt="" draggable="true" ondragstart="drag(event, 'turtle')" height="200px" style="display: none;">
             <p></p>
         </div>
-        <a download="layup.png" id="downloadButton">Download Design</a>
+        <!-- <a download="layup.png" id="downloadButton">Download Design</a> -->
     </body>
 <script src="./drawOnHull.js"></script>
 </html>

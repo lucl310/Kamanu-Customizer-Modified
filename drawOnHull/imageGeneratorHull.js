@@ -8,9 +8,9 @@ window.exportAsImage = function exportAsImage(element, imageFilename){
         canvasimage.y = (document.body, {yoffset: 1500})
         canvasimage.setAttribute("id","canvasImage")
         canvasimage.setAttribute("draggable", "true")
-        canvasimage.setAttribute('ondragstart', 'drag(event)')
-        downloadLink.setAttribute('href', canvasimage.toDataURL());
-        downloadLink.style.opacity = '100%'
+        document.getElementById('downloadLink').setAttribute('href', canvasimage.toDataURL());
+        // downloadLink.style.display = 'none'
+        // document.getElementById('downloadLink').style.display = 'none'
         canvasimage.style.margin = "50px 0px"
         canvasimage.style.display = "none"
         canvasimage.style.backgroundcolor = "#94a3b8";

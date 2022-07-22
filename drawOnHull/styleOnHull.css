@@ -160,7 +160,11 @@ button{
 	height: 24px;
 }
 #downloadButton{
-	opacity: 0;
+	display: none;
+}
+#downloadLink{
+	text-decoration: none;
+	color: black;
 }
 #backDeck{
 	position: absolute;
