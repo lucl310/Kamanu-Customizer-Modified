@@ -9,8 +9,6 @@ window.exportAsImage = function exportAsImage(element, imageFilename){
         canvasimage.setAttribute("id","canvasImage")
         canvasimage.setAttribute("draggable", "true")
         document.getElementById('downloadLink').setAttribute('href', canvasimage.toDataURL());
-        // downloadLink.style.display = 'none'
-        // document.getElementById('downloadLink').style.display = 'none'
         canvasimage.style.margin = "50px 0px"
         canvasimage.style.display = "none"
         canvasimage.style.backgroundcolor = "#94a3b8";
@@ -35,7 +33,6 @@ window.exportAsImage = function exportAsImage(element, imageFilename){
     console.log("Im working better")
   }
 };
-console.log("Kahe koko omao")
 
 var downloadImage = (blob, fileName) => {
   var fakeLink = window.document.createElement("a");

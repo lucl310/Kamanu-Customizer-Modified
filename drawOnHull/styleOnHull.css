@@ -74,9 +74,7 @@ button{
 }
 #shading{
     position: absolute;
-    /* top: 63.8%; */
     margin-top: 3.8%;
-    /* left: -10px; */
 	z-index: 101;
 }
 #amaShading{
@@ -93,17 +91,14 @@ button{
 	opacity: 100%;
 	z-index: 100;
 	height: 8vw;
-	/* height: auto; */
 	background-color: transparent;
 	fill-opacity: 100%;
 	border: none;
 	border-color: transparent;
 	outline: none;
 	stroke: none;
-	/* bottom: 10%; */
 }
 #hullDraw{
-	/* position: absolute; */
 	margin-top: -10%;
 	left: 47.5%;
 	text-align: center;
