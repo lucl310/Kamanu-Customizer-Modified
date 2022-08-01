@@ -42,6 +42,10 @@ whenever img is dropped over a certain portion of the canoe, it will go to a pre
 can use getimagedata to draw stickers on the canvas or just create a new element
 sticker should be able to change color too
 
+use left and top value of currently placed svg to create new png for when image is saved because currently svgs do not show up on the saved design
+
+immediately delete the png and replace it with an svg afterwards
+
 have preset drag and drop designs, maybe dont need multiple sections of the shading, just have a div over it that gains z value whenever an image or sticker is being dragged
 
 maybe just remove the show saved designs feature and replace the button with the download button
