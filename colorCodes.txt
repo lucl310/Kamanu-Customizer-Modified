@@ -49,3 +49,15 @@ immediately delete the png and replace it with an svg afterwards
 have preset drag and drop designs, maybe dont need multiple sections of the shading, just have a div over it that gains z value whenever an image or sticker is being dragged
 
 maybe just remove the show saved designs feature and replace the button with the download button
+
+placedImage only applies to the most recently placed image
+
+new front sticker png is now frontstickertemp
+
+multiple svg placement works, however the iceCube or g cannot be edited on all of them as document.getElementById('iceCube') only targets the first created g element 
+
+use an array of names that keeps getting added to
+
+Works but dragging is now broken
+
+add png based off of new id in onclick
