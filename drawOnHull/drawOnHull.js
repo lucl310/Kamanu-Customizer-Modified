@@ -83,6 +83,7 @@ console.log("I work")
 document.getElementById("amaPic").style.fill = "rgb(118,121,124)"
 document.getElementById("deckPic").style.fill = "rgb(118,121,124)"
 
+//starting default colors
 let currentColor = "green"
 let deckColor = "rgb(118,121,124)"
 let amaColor = "rgb(118,121,124)"
@@ -90,6 +91,7 @@ let amaColor = "rgb(118,121,124)"
 var img = new Image()
 let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
+//styles z-index to proper order on window load
 window.onload = function(){
 	document.getElementById('downloadButton').style.display == "none";
 	shading.style.zIndex = "1001";
@@ -183,8 +185,8 @@ function deckChange(placement){
 	amaColor = currentColor
 };
 
+//clears all items from the canvas and returns to default colors
 function clearClick() {
-
     ctx.putImageData(imgData, 0, 0);
     ctx.drawImage(img, 50, 0);
 
@@ -223,7 +225,7 @@ function clearClick() {
     console.log("The layup has been cleared");
 };
 
-
+//returns a confirmation message to the user, if ok is selected, allows for design to be saved as image
 function confirmMessage(){
     if(amaColor == "rgb(118,121,124)" && deckColor == "rgb(118,121,124)"){
       var confirmAlert = confirm("Please ensure the following is correct \nThis is a stock grey Noio")
@@ -243,18 +245,25 @@ function confirmMessage(){
     }
 };
 
+//toggles visibility of saved designs
 function showDesigns(){
     var doneLayups = document.getElementById("canvasImage")
     if(doneLayups.style.display == "none"){
 		console.log('displays shown')
+		document.querySelectorAll("#canvasImage").forEach((canvasImage) => {
+			canvasImage.style.display = "initial"
+		})
 		doneLayups.style.display = "initial"
     } else if(doneLayups.style.display == "initial"){
       	console.log("displays hidden")
+		  document.querySelectorAll("#canvasImage").forEach((canvasImage) => {
+			  canvasImage.style.display = "none"
+		  })
 		doneLayups.style.display = "none"
     }
 };
 
-//begin drawing function
+//begin drawing function and mouse listeners - ispainting is triggered on mousedown
 
 const draw = (e) => {
     if(!isPainting) {
@@ -345,6 +354,7 @@ canvas.addEventListener('touchmove', draw);
 
 //end drawing function
 
+//changes shading and z-index based on currently selected tool
 function toolSwitch(type){
 	if(type == 'bucket'){
 		document.querySelectorAll("#frontSticker").forEach((frontSticker) => {
@@ -497,6 +507,7 @@ function allowDrop(ev) {
 	ev.preventDefault();
 }
 
+//brings droppable areas to z front while dragging
 function drag(ev, type) {
 	currentSticker = type
 	console.log(type)
@@ -504,6 +515,7 @@ function drag(ev, type) {
 	document.getElementById('backDeck').style.zIndex = '1001';
 }
 
+//determines where and how a sticker should be placed
 function drop(ev, location) {
 	console.log(currentSticker)
 	ev.preventDefault();
@@ -520,6 +532,7 @@ function drop(ev, location) {
 	// placedSticker.src = "../" + currentSticker + ".svg"
 	console.log(location)
 	if(location == comingFrom){
+		//if the sticker being dragged is being dropped in the same spot
 		if(currentSticker == "tribalDesign"){
 			if(comingFrom == "frontDeck"){
 				placeFront('tribalDesign')
@@ -542,6 +555,7 @@ function drop(ev, location) {
 			}
 		}
 	} else if(stickerId >= 1){
+		//if the sticker being dragged is one that has already been placed on the canvas
 		if(location == "delete"){
 			document.getElementById("replace").remove();
 			placedSticker.remove();
@@ -573,6 +587,7 @@ function drop(ev, location) {
 		}
 		stickerId = 0
 	} else if(stickerId <=0){
+		//if the sticker being dragged has not been placed on the canvas already
 		if(location == 'delete'){
 			placedSticker.remove();
 			console.log('no')
@@ -591,6 +606,7 @@ function drop(ev, location) {
 			}
 		}
 	}
+	//removes stickers without an id or that do not have id of frontsticker or backsticker
 	placedSticker.setAttribute("class", "tribalStickers")
 	if(placedSticker.attributes.id == undefined){
 		placedSticker.remove();
@@ -607,6 +623,7 @@ function drop(ev, location) {
 	console.log('stickers')
 }
 
+//changes id to replace while previously placed stickers are being dragged to a new location so that a new sticker can be created at drop and the old can be deleted
 function replaceDrag(ev, type, location){
 	currentSticker = type
 	console.log(type)
@@ -641,6 +658,7 @@ function hideStickers(){
 	stickertextvar.style.display = "none"
 }
 
+//function to place stickers on backDeck
 function placeBack(stickerType){
 	placedSticker.setAttribute("id", "backSticker")
 	if(stickerType == 'turtle'){
@@ -649,6 +667,7 @@ function placeBack(stickerType){
 		placedSticker.setAttribute("onmouseup", "pngClear()")
 		iceCube = document.getElementById('iceCube0')
 		let nwa = []
+		//creates a unique id for each g tag placed and stores it in the array
 		nwa.push('iceCube0' + document.querySelectorAll('#backSticker').length + document.querySelectorAll('#frontSticker').length)
 		console.log(nwa)
 		let currentId = nwa[nwa.length - 1]
@@ -659,6 +678,7 @@ function placeBack(stickerType){
 		placedSticker.setAttribute('onmousedown', 'replaceSVG("back", "turtle", "iceCube0' + document.querySelectorAll('#backSticker').length.toString() + document.querySelectorAll('#frontSticker').length.toString() + '")')
 		placedSticker.style = 'left:' + (mouseX - 25 - (placedSticker.clientWidth/4)) +'px; top:' + (mouseY - (placedSticker.clientHeight/4) - 5) + 'px; position: absolute; transform: rotate(90deg);'
 		dre.setAttribute('transform', 'translate(-50.000000,450.000000) scale(0.0500000,-0.0500000)')
+		//set svg size based on lineWidth
 		if(lineWidth == 5){
 			dre.setAttribute('transform', 'translate(25.000000,375.000000) scale(0.02500000,-0.02500000)')
 		} else if(lineWidth == 10){
@@ -706,6 +726,7 @@ function placeBack(stickerType){
 	iceCube.setAttribute('fill', currentColor)
 }
 
+//function to place stickers on frontDeck
 function placeFront(stickerType){
 	placedSticker.setAttribute("id", "frontSticker")
 	if(stickerType == 'turtle'){
@@ -768,7 +789,7 @@ function placeFront(stickerType){
 	console.log('that was mouse X')
 	frontStickerZ('1001')
 	iceCube.setAttribute('fill', currentColor)
-	// sanityCheck()
+	sanityCheck()
 }
 
 function frontStickerZ(zValue){
@@ -783,6 +804,7 @@ function backStickerZ(zValue){
 	}
 }
 
+//changes svgs to pngs on mousedown in order to allow them to be dragged (svgs are natively undraggable), and changes them back on mouseup
 function replaceSVG(location, stickerType, placedStickerId){
 	var stickerHolder = document.getElementById("toBeScreenshot")
 	placedImage = document.createElement('img')
@@ -835,6 +857,7 @@ function replaceSVG(location, stickerType, placedStickerId){
 	sanityCheck()
 }
 
+//removes stickers that do not follow stickerOnBack or stickerOnFront and logs how many stickers where placed
 function sanityCheck(){
 	if(stickerOnBack == false){
 		while(document.querySelectorAll('#backSticker').length >= 1){
@@ -858,6 +881,7 @@ function sanityCheck(){
 	console.log("Sanity check ran")
 	console.log("there were " + document.querySelectorAll('#frontSticker').length + " front stickers")
 	console.log("there were " + document.querySelectorAll('#backSticker').length + " back stickers")
+	//should always be 0 unless something is currently being dragged
 	console.log("there were " + document.querySelectorAll('#replace').length + " replace stickers")
 }
 
