@@ -857,7 +857,7 @@ function replaceSVG(location, stickerType, placedStickerId){
 	sanityCheck()
 }
 
-//removes stickers that do not follow stickerOnBack or stickerOnFront and logs how many stickers where placed
+//removes stickers that do not follow stickerOnBack or stickerOnFront and logs how many stickers were placed
 function sanityCheck(){
 	if(stickerOnBack == false){
 		while(document.querySelectorAll('#backSticker').length >= 1){
