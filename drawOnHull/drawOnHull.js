@@ -380,6 +380,8 @@ function toolSwitch(type){
 		eraser.style.opacity = "100%";
 		cover.style.display = "none";
 		canvas.style.zIndex = "0";
+		document.getElementById("frontDeck").style.zIndex = "0"
+		document.getElementById("backDeck").style.zIndex = "0"
 		hideStickers()
 		ctx.globalCompositeOperation = "source-over"
 		frontStickerZ('1')
@@ -406,6 +408,8 @@ function toolSwitch(type){
 		eraser.style.opacity = "100%";
 		cover.style.display = "none";
 		canvas.style.zIndex = "1000";
+		document.getElementById("frontDeck").style.zIndex = "0"
+		document.getElementById("backDeck").style.zIndex = "0"
 		hideStickers()
 		ctx.globalCompositeOperation = "source-over"
 		frontStickerZ('1')
@@ -433,6 +437,8 @@ function toolSwitch(type){
 		paintBucket.style.opacity = "100%";
 		cover.style.display = "none";
 		canvas.style.zIndex = "1000";
+		document.getElementById("frontDeck").style.zIndex = "0"
+		document.getElementById("backDeck").style.zIndex = "0"
 		hideStickers()
 		frontStickerZ('1')
 		backStickerZ('1')
